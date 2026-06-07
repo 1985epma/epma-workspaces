@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, ssystem-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-heading: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: #fafafa;
+  color: #171717;
+  overflow-x: hidden;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Print support for exporting high-fidelity PDFs */
+@media print {
+  /* Dynamic layout expanding reset */
+  html, body, #root, #root > div, .h-screen, .w-screen, .overflow-hidden, .overflow-y-auto, .flex-1 {
+    height: auto !important;
+    min-height: 100% !important;
+    overflow: visible !important;
+    overflow-y: visible !important;
+    position: static !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+
+  /* Force light theme colors on print for crispness */
+  * {
+    color: #171717 !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Completely hide all non-page user interfaces */
+  #workspace-sidebar,
+  header,
+  #page-header,
+  [id^="page-header-"],
+  .no-print,
+  button,
+  select,
+  [id^="controls-hanger-"],
+  [id^="block-add-"],
+  [id^="block-up-"],
+  [id^="block-down-"],
+  [id^="block-ai-"],
+  [id^="block-delete-"],
+  .absolute.top-5.right-5,
+  #admin-billing-backdrop,
+  #billing-modal-backdrop,
+  .hover-trigger,
+  .drag-handle,
+  svg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+  }
+
+  /* Format the document container perfectly for printing */
+  main, .pt-20, .block-editor-container {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    background: transparent !important;
+  }
+
+  /* Form and Text Inputs styling for print legibility */
+  input, textarea {
+    border: none !important;
+    outline: none !important;
+    background: transparent !important;
+    color: #171717 !important;
+    font-size: 11pt !important;
+    line-height: 1.6 !important;
+    overflow: visible !important;
+    height: auto !important;
+    resize: none !important;
+    width: 100% !important;
+  }
+
+  /* Ensure page breaks are handled gracefully */
+  h1, h2, h3 {
+    page-break-after: avoid;
+    page-break-before: auto;
+  }
+  
+  p, blockquote, ul, ol, pre {
+    page-break-inside: avoid;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #e5e5e5;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d4d4d4;
+}
+

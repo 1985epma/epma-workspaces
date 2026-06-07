@@ -1,0 +1,6 @@
+{
+  "name": "EPMA Workspace",
+  "description": "A highly interactive, beautiful EPMA workspace tracker and page editor featuring custom block lists, structured database views, nesting pages structure, and an integrated server-side Gemini AI assistant.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
