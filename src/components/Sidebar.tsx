@@ -134,10 +134,10 @@ export default function Sidebar({
         <div
           id={`sidebar-item-${page.id}`}
           onClick={() => onSelectPage(page.id)}
-          className={`group flex items-center justify-between py-1.5 px-3 mx-2 my-0.5 rounded-lg cursor-pointer text-sm transition-all duration-150 ${
+          className={`group flex items-center justify-between py-2 px-3 mx-2 my-0.5 rounded-2xl cursor-pointer text-sm transition-all duration-150 ${
             isSelected
-              ? 'bg-neutral-100 dark:bg-neutral-800 font-medium text-neutral-900 dark:text-white border-l-4 border-neutral-800 dark:border-neutral-200 pl-2'
-              : 'text-neutral-600 dark:text-neutral-400 hover:bg-neutral-50 dark:hover:bg-neutral-900 hover:text-neutral-900 dark:hover:text-white'
+              ? 'bg-neutral-100 dark:bg-white/10 font-medium text-neutral-900 dark:text-white shadow-sm'
+              : 'text-neutral-600 dark:text-neutral-400 hover:bg-black/[0.03] dark:hover:bg-white/5 hover:text-neutral-900 dark:hover:text-white'
           }`}
           style={{ paddingLeft: `${Math.max(12, depth * 14)}px` }}
         >
@@ -145,7 +145,7 @@ export default function Sidebar({
             <button
               id={`sidebar-expand-${page.id}`}
               onClick={(e) => toggleExpand(page.id, e)}
-              className={`p-0.5 rounded hover:bg-neutral-200 text-neutral-400 transition-all ${
+              className={`p-0.5 rounded-full hover:bg-black/5 text-neutral-400 transition-all ${
                 !hasChildren ? 'opacity-0 cursor-default' : ''
               }`}
               disabled={!hasChildren}
@@ -168,7 +168,7 @@ export default function Sidebar({
               id={`sidebar-add-sub-${page.id}`}
               onClick={(e) => handleAddSubpage(page.id, e)}
               title="Add a nested subpage"
-              className="p-1 rounded hover:bg-neutral-200 text-neutral-500 hover:text-neutral-700"
+              className="p-1 rounded-full hover:bg-black/5 text-neutral-500 hover:text-neutral-700"
             >
               <Plus className="w-3.5 h-3.5" />
             </button>
@@ -181,7 +181,7 @@ export default function Sidebar({
                 }
               }}
               title="Delete page"
-              className="p-1 rounded hover:bg-neutral-200 text-neutral-500 hover:text-red-600"
+              className="p-1 rounded-full hover:bg-black/5 text-neutral-500 hover:text-red-600"
             >
               <Trash2 className="w-3.5 h-3.5" />
             </button>
@@ -203,29 +203,29 @@ export default function Sidebar({
   return (
     <div
       id="workspace-sidebar"
-      className={`fixed top-0 bottom-0 left-0 z-30 flex flex-col bg-neutral-50 dark:bg-neutral-950 border-r border-neutral-200 dark:border-neutral-850 transform transition-transform duration-300 md:relative md:transform-none ${
-        isOpen ? 'translate-x-0 w-[260px]' : '-translate-x-full w-0 md:hidden'
+      className={`fixed top-0 bottom-0 left-0 z-30 flex flex-col bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border-r border-black/5 transform transition-transform duration-300 md:relative md:transform-none ${
+        isOpen ? 'translate-x-0 w-[280px]' : '-translate-x-full w-0 md:hidden'
       }`}
     >
       {/* Sidebar Header */}
-      <div className="flex items-center justify-between p-4 border-b border-neutral-100 dark:border-neutral-850/60">
+      <div className="flex items-center justify-between p-4 border-b border-black/5 dark:border-white/5">
         <div className="flex items-center gap-2.5">
-          <div className="px-2 py-0.5 rounded bg-neutral-900 dark:bg-neutral-800 flex items-center justify-center text-white font-extrabold text-xs tracking-wider">
+          <div className="px-2 py-0.5 rounded-full bg-neutral-900 dark:bg-white flex items-center justify-center text-white dark:text-neutral-900 font-semibold text-xs tracking-wider">
             EPMA
           </div>
-          <span className="font-semibold text-neutral-800 dark:text-neutral-200 tracking-tight text-sm">EPMA Workspace</span>
+          <span className="font-medium text-neutral-800 dark:text-neutral-200 tracking-tight text-sm">Workspace</span>
         </div>
         <button
           id="sidebar-close-btn"
           onClick={onToggleSidebar}
-          className="p-1.5 rounded hover:bg-neutral-200 text-neutral-500 shrink-0 md:hidden"
+          className="p-1.5 rounded-full hover:bg-black/5 text-neutral-500 shrink-0 md:hidden"
         >
           <X className="w-4 h-4" />
         </button>
         <button
           id="sidebar-collapse-btn"
           onClick={onToggleSidebar}
-          className="p-1.5 rounded hover:bg-neutral-200 text-neutral-400 hover:text-neutral-600 hidden md:block shrink-0"
+          className="p-1.5 rounded-full hover:bg-black/5 text-neutral-400 hover:text-neutral-600 hidden md:block shrink-0"
           title="Collapse Sidebar"
         >
           <ChevronLeft className="w-4 h-4" />
@@ -238,7 +238,7 @@ export default function Sidebar({
         <button
           id="sidebar-search-trigger"
           onClick={() => setSearchOpen(true)}
-          className="w-full flex items-center gap-2 px-3 py-2 text-xs text-neutral-500 bg-white border border-neutral-200 rounded-lg shadow-sm hover:border-neutral-300 transition"
+          className="w-full flex items-center gap-2 px-3 py-2.5 text-xs text-neutral-500 bg-white/80 border border-black/5 rounded-2xl shadow-sm hover:border-black/10 transition"
         >
           <Search className="w-3.5 h-3.5 text-neutral-400" />
           <span className="flex-1 text-left">Search pages...</span>
@@ -250,7 +250,7 @@ export default function Sidebar({
           <button
             id="sidebar-new-doc-btn"
             onClick={() => onAddPage(null, false)}
-            className="flex-1 flex items-center justify-center gap-1 py-1.5 px-3 bg-white hover:bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700 rounded-lg shadow-sm transition"
+            className="flex-1 flex items-center justify-center gap-1 py-2 px-3 bg-white/80 hover:bg-white border border-black/5 text-xs font-medium text-neutral-700 rounded-2xl shadow-sm transition"
           >
             <Plus className="w-3.5 h-3.5" />
             New Page
@@ -258,7 +258,7 @@ export default function Sidebar({
           <button
             id="sidebar-new-db-btn"
             onClick={() => onAddPage(null, true)}
-            className="flex-1 flex items-center justify-center gap-1 py-1.5 px-3 bg-white hover:bg-neutral-100 border border-neutral-200 text-xs font-medium text-neutral-700 rounded-lg shadow-sm transition"
+            className="flex-1 flex items-center justify-center gap-1 py-2 px-3 bg-white/80 hover:bg-white border border-black/5 text-xs font-medium text-neutral-700 rounded-2xl shadow-sm transition"
           >
             <Database className="w-3.5 h-3.5 text-neutral-500" />
             New Table
@@ -280,10 +280,10 @@ export default function Sidebar({
                 <div
                   key={`fav-${fav.id}`}
                   onClick={() => onSelectPage(fav.id)}
-                  className={`flex items-center gap-2 py-1.5 px-5 mx-2 rounded-lg cursor-pointer text-sm transition-colors ${
+                  className={`flex items-center gap-2 py-1.5 px-5 mx-2 rounded-2xl cursor-pointer text-sm transition-colors ${
                     currentPageId === fav.id
-                      ? 'bg-neutral-100 font-medium text-neutral-900 border-l-4 border-neutral-800 pl-[16px]'
-                      : 'text-neutral-600 hover:bg-neutral-50 hover:text-neutral-900'
+                      ? 'bg-neutral-100 font-medium text-neutral-900 shadow-sm'
+                      : 'text-neutral-600 hover:bg-black/[0.03] hover:text-neutral-900'
                   }`}
                 >
                   <span className="text-base shrink-0 select-none leading-none">{fav.emoji || '📝'}</span>
@@ -310,7 +310,7 @@ export default function Sidebar({
       </div>
 
       {/* Import/Export Backups Panel */}
-      <div className="p-3 border-t border-neutral-200 bg-neutral-100/50 space-y-2">
+      <div className="p-3 border-t border-black/5 bg-white/60 space-y-2">
         <div className="text-[10px] uppercase tracking-wider font-semibold text-neutral-400 px-1">
           Backup Controls
         </div>
@@ -318,13 +318,13 @@ export default function Sidebar({
           <button
             id="workspace-export-btn"
             onClick={handleExport}
-            className="flex items-center justify-center gap-1 py-1.5 px-2 bg-white hover:bg-neutral-50 border border-neutral-200 rounded text-xs font-medium text-neutral-600 shadow-sm transition"
+            className="flex items-center justify-center gap-1 py-1.5 px-2 bg-white/80 hover:bg-white border border-black/5 rounded-2xl text-xs font-medium text-neutral-600 shadow-sm transition"
           >
             <Download className="w-3 h-3 text-neutral-500" />
             Export
           </button>
           
-          <label className="flex items-center justify-center gap-1 py-1.5 px-2 bg-white hover:bg-neutral-50 border border-neutral-200 rounded text-xs font-medium text-neutral-600 shadow-sm cursor-pointer transition">
+          <label className="flex items-center justify-center gap-1 py-1.5 px-2 bg-white/80 hover:bg-white border border-black/5 rounded-2xl text-xs font-medium text-neutral-600 shadow-sm cursor-pointer transition">
             <Upload className="w-3 h-3 text-neutral-500" />
             Import
             <input
@@ -338,7 +338,7 @@ export default function Sidebar({
       </div>
 
       {/* Workspace Plan Pricing Widget */}
-      <div className="p-3 border-t border-neutral-200 dark:border-neutral-850 bg-linear-to-b from-white to-neutral-50/20 dark:from-neutral-900 dark:to-neutral-950 space-y-2">
+      <div className="p-3 border-t border-black/5 dark:border-white/5 bg-linear-to-b from-white/80 to-neutral-50/20 dark:from-neutral-900 dark:to-neutral-950 space-y-2">
         <div className="flex items-center justify-between px-1">
           <span className="text-[10px] uppercase tracking-wider font-bold text-neutral-400 dark:text-neutral-550">Workspace Tier</span>
           <span className="text-[9px] bg-indigo-50 dark:bg-indigo-950/40 text-indigo-700 dark:text-indigo-400 border border-indigo-200/50 dark:border-indigo-900 font-bold px-2 py-0.5 rounded-full uppercase tracking-wider select-none">
@@ -349,22 +349,22 @@ export default function Sidebar({
         <button
           id="sidebar-upgrade-widget-btn"
           onClick={onOpenBilling}
-          className="w-full flex items-center justify-between text-left p-2.5 rounded-xl bg-indigo-50/50 dark:bg-indigo-950/20 hover:bg-indigo-100/40 border border-indigo-150 dark:border-indigo-900/50 text-indigo-700 dark:text-indigo-400 hover:text-indigo-800 transition duration-150 group cursor-pointer"
+          className="w-full flex items-center justify-between text-left p-2.5 rounded-2xl bg-neutral-100/80 dark:bg-neutral-800/60 hover:bg-neutral-200/60 dark:hover:bg-neutral-800 border border-black/5 text-neutral-700 dark:text-neutral-300 transition duration-150 group cursor-pointer"
         >
           <div className="flex items-center gap-2">
-            <Sparkles className="w-3.5 h-3.5 text-indigo-500 shrink-0 group-hover:scale-110 transition" />
+            <Sparkles className="w-3.5 h-3.5 text-neutral-500 shrink-0 group-hover:scale-110 transition" />
             <div className="leading-none">
-              <p className="text-xs font-bold text-neutral-800 dark:text-neutral-200 group-hover:text-indigo-950 dark:group-hover:text-white mb-0.5">Subscription Ledger</p>
+              <p className="text-xs font-semibold text-neutral-800 dark:text-neutral-200 group-hover:text-neutral-950 dark:group-hover:text-white mb-0.5">Subscription</p>
               <p className="text-[10px] text-neutral-400 dark:text-neutral-500 font-mono">Manage Stripe & Wallets</p>
             </div>
           </div>
-          <ChevronRight className="w-3.5 h-3.5 text-indigo-400/80 group-hover:translate-x-0.5 transition shrink-0" />
+          <ChevronRight className="w-3.5 h-3.5 text-neutral-400 group-hover:translate-x-0.5 transition shrink-0" />
         </button>
 
         <button
           id="sidebar-admin-widget-btn"
           onClick={onOpenAdmin}
-          className="w-full flex items-center justify-between text-left p-2.5 rounded-xl bg-neutral-900 dark:bg-neutral-800 hover:bg-neutral-800 dark:hover:bg-neutral-700 text-white transition duration-150 group cursor-pointer"
+          className="w-full flex items-center justify-between text-left p-2.5 rounded-2xl bg-neutral-900 dark:bg-neutral-800 hover:bg-neutral-800 dark:hover:bg-neutral-700 text-white transition duration-150 group cursor-pointer"
         >
           <div className="flex items-center gap-2">
             <ShieldCheck className="w-3.5 h-3.5 text-indigo-400 shrink-0 group-hover:scale-110 transition" />
@@ -410,7 +410,7 @@ export default function Sidebar({
             id="sidebar-logout-btn"
             onClick={onLogout}
             title="Sign Out"
-            className="p-1.5 rounded-lg hover:bg-neutral-200/85 dark:hover:bg-neutral-800 text-neutral-400 hover:text-red-600 hover:bg-red-50/50 transition-all cursor-pointer shrink-0"
+            className="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/5 text-neutral-400 hover:text-red-600 transition-all cursor-pointer shrink-0"
           >
             <LogOut className="w-4 h-4" />
           </button>
@@ -435,7 +435,7 @@ export default function Sidebar({
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="relative w-full max-w-lg bg-white rounded-xl shadow-2xl border border-neutral-200 overflow-hidden"
+              className="relative w-full max-w-lg bg-white/95 rounded-[28px] shadow-[0_30px_90px_rgba(17,17,17,0.14)] border border-black/5 overflow-hidden"
             >
               <div className="p-3 border-b border-neutral-100 flex items-center gap-2">
                 <Search className="w-4 h-4 text-neutral-400 shrink-0" />
@@ -451,7 +451,7 @@ export default function Sidebar({
                 <button
                   id="close-search-dialog"
                   onClick={() => setSearchOpen(false)}
-                  className="p-1 rounded hover:bg-neutral-100 text-neutral-400"
+                  className="p-1 rounded-full hover:bg-black/5 text-neutral-400"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -471,7 +471,7 @@ export default function Sidebar({
                           setSearchOpen(false);
                           setSearchTerm('');
                         }}
-                        className="flex items-center gap-2.5 p-2 rounded-lg hover:bg-neutral-50 cursor-pointer transition text-sm text-neutral-700 hover:text-neutral-900"
+                        className="flex items-center gap-2.5 p-2 rounded-2xl hover:bg-black/[0.03] cursor-pointer transition text-sm text-neutral-700 hover:text-neutral-900"
                       >
                         <span className="text-lg shrink-0 leading-none">{page.emoji || '📝'}</span>
                         <div className="flex-1 min-w-0">

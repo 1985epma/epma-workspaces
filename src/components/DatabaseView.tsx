@@ -209,26 +209,26 @@ export default function DatabaseView({
   };
 
   return (
-    <div id={`db-view-canvas-${currentPage.id}`} className="p-8 max-w-5xl mx-auto space-y-6">
+    <div id={`db-view-canvas-${currentPage.id}`} className="p-6 md:p-8 max-w-5xl mx-auto space-y-6">
       {/* DB controls header */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-neutral-100 pb-4">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 border-b border-black/5 pb-4">
         <div>
-          <h2 className="text-xl font-bold text-neutral-800 flex items-center gap-2">
-            <Layers className="w-5 h-5 text-indigo-500" />
+          <h2 className="text-xl font-semibold text-neutral-900 flex items-center gap-2">
+            <Layers className="w-5 h-5 text-neutral-500" />
             Database Tracker
           </h2>
-          <p className="text-xs text-neutral-400 mt-0.5">Rows sync automatically with subpages. Click the title to edit visual blocks.</p>
+          <p className="text-xs text-neutral-500 mt-0.5">Rows sync automatically with subpages. Click the title to edit visual blocks.</p>
         </div>
 
         {/* Action controls */}
         <div className="flex items-center gap-2 flex-wrap">
           {/* Filter Status Selector */}
-          <div className="flex items-center gap-1.5 bg-neutral-100 p-1 rounded-lg">
+          <div className="flex items-center gap-1.5 bg-white/80 border border-black/5 p-1 rounded-2xl shadow-sm">
             <button
               id="filter-all-btn"
               onClick={() => setFilterStatus('all')}
-              className={`px-2.5 py-1 rounded text-xs transition cursor-pointer font-medium ${
-                filterStatus === 'all' ? 'bg-white text-neutral-800 shadow-xs' : 'text-neutral-500'
+              className={`px-2.5 py-1 rounded-full text-xs transition cursor-pointer font-medium ${
+                filterStatus === 'all' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-500'
               }`}
             >
               All
@@ -236,8 +236,8 @@ export default function DatabaseView({
             <button
               id="filter-active-tasks"
               onClick={() => setFilterStatus('inprogress')}
-              className={`px-2.5 py-1 rounded text-xs transition cursor-pointer font-medium ${
-                filterStatus === 'inprogress' ? 'bg-white text-neutral-800 shadow-xs' : 'text-neutral-500'
+              className={`px-2.5 py-1 rounded-full text-xs transition cursor-pointer font-medium ${
+                filterStatus === 'inprogress' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-500'
               }`}
             >
               In Progress
@@ -245,8 +245,8 @@ export default function DatabaseView({
             <button
               id="filter-done-tasks"
               onClick={() => setFilterStatus('done')}
-              className={`px-2.5 py-1 rounded text-xs transition cursor-pointer font-medium ${
-                filterStatus === 'done' ? 'bg-white text-neutral-800 shadow-xs' : 'text-neutral-500'
+              className={`px-2.5 py-1 rounded-full text-xs transition cursor-pointer font-medium ${
+                filterStatus === 'done' ? 'bg-white text-neutral-900 shadow-sm' : 'text-neutral-500'
               }`}
             >
               Completed
@@ -259,7 +259,7 @@ export default function DatabaseView({
               id="db-sort-dropdown"
               value={sortKey}
               onChange={(e) => setSortKey(e.target.value)}
-              className="text-xs font-medium text-neutral-600 bg-white border border-neutral-200 outline-hidden focus:border-neutral-300 py-1.5 px-3.5 rounded-lg cursor-pointer"
+              className="text-xs font-medium text-neutral-600 bg-white/90 border border-black/5 outline-hidden focus:border-neutral-300 py-1.5 px-3.5 rounded-full cursor-pointer shadow-sm"
             >
               <option value="none">Sort: Custom Default</option>
               <option value="title-asc">Title (A-Z)</option>
@@ -272,7 +272,7 @@ export default function DatabaseView({
           <button
             id="db-add-entry-btn"
             onClick={handleAddRow}
-            className="flex items-center gap-1.5 py-1.5 px-3.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded-lg font-medium text-xs shadow-md transition cursor-pointer"
+            className="flex items-center gap-1.5 py-1.5 px-3.5 bg-neutral-900 hover:bg-neutral-800 text-white rounded-full font-medium text-xs shadow-sm transition cursor-pointer"
           >
             <Plus className="w-4 h-4" />
             Add Row
@@ -281,11 +281,11 @@ export default function DatabaseView({
       </div>
 
       {/* Grid Database markup Table */}
-      <div className="border border-neutral-200/80 rounded-xl overflow-hidden shadow-xs bg-white">
+      <div className="border border-black/5 rounded-[24px] overflow-hidden shadow-sm bg-white/90">
         <div className="overflow-x-auto">
           <table className="w-full text-left border-collapse min-w-[700px]">
             <thead>
-              <tr className="bg-neutral-50 border-b border-neutral-200 divide-x divide-neutral-200 text-xs font-semibold text-neutral-500">
+              <tr className="bg-neutral-50/80 border-b border-black/5 divide-x divide-black/5 text-xs font-semibold text-neutral-500">
                 <th className="p-3 w-12 text-center select-none">#</th>
                 <th className="p-3">ITEM TITLE</th>
                 <th className="p-3 w-40">PROGRESS STATUS</th>
@@ -295,7 +295,7 @@ export default function DatabaseView({
                 <th className="p-3 w-16 text-center">DELETE</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-neutral-200 text-sm text-neutral-700">
+            <tbody className="divide-y divide-black/5 text-sm text-neutral-700">
               {filteredRows.length === 0 ? (
                 <tr>
                   <td colSpan={7} className="p-6 text-center text-xs text-neutral-400 italic">
@@ -309,7 +309,7 @@ export default function DatabaseView({
                   const emoji = linkedPage?.emoji || '📝';
 
                   return (
-                    <tr key={row.id} className="hover:bg-neutral-50/50 transition duration-150 divide-x divide-neutral-100">
+                    <tr key={row.id} className="hover:bg-black/[0.02] transition duration-150 divide-x divide-black/5">
                       {/* Row index */}
                       <td className="p-3 text-center text-xs text-neutral-400 font-mono select-none">
                         {index + 1}

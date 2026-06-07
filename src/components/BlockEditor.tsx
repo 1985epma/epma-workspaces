@@ -317,18 +317,18 @@ export default function BlockEditor({
   };
 
   return (
-    <div id={`blocks-canvas-${currentPage.id}`} className="max-w-4xl mx-auto px-8 md:px-14 py-10 space-y-3.5 relative text-neutral-800 dark:text-neutral-100 transition-colors">
+    <div id={`blocks-canvas-${currentPage.id}`} className="max-w-4xl mx-auto px-6 md:px-14 py-10 space-y-3.5 relative text-neutral-800 dark:text-neutral-100 transition-colors">
       
       {/* Visual / Markdown Segmented Switching Header Tabs */}
-      <div className="no-print flex items-center justify-between border-b border-neutral-200/60 dark:border-neutral-800/60 pb-3 mb-6">
-        <div className="flex bg-neutral-100 dark:bg-neutral-800 p-1 rounded-xl">
+      <div className="no-print flex items-center justify-between border-b border-black/5 dark:border-white/5 pb-3 mb-6">
+        <div className="flex bg-white/80 dark:bg-neutral-900/80 p-1 rounded-2xl border border-black/5 dark:border-white/10 shadow-sm">
           <button
             id="editor-tab-visual"
             onClick={() => setEditorMode('visual')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
               editorMode === 'visual'
-                ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs font-bold'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-sm font-semibold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
             <AlignLeft className="w-3.5 h-3.5" />
@@ -339,8 +339,8 @@ export default function BlockEditor({
             onClick={() => setEditorMode('markdown')}
             className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold cursor-pointer transition-all ${
               editorMode === 'markdown'
-                ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-xs font-bold'
-                : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
+                ? 'bg-white dark:bg-neutral-900 text-neutral-900 dark:text-white shadow-sm font-semibold'
+                  : 'text-neutral-500 hover:text-neutral-900 dark:hover:text-white'
             }`}
           >
             <Code className="w-3.5 h-3.5" />
@@ -353,10 +353,10 @@ export default function BlockEditor({
             <button
               id="raw-copy-md-btn"
               onClick={copyMarkdownOnly}
-              className={`px-2.5 py-1.5 border rounded-lg text-[10px] font-bold cursor-pointer transition-all ${
+              className={`px-2.5 py-1.5 border rounded-full text-[10px] font-medium cursor-pointer transition-all ${
                 markdownCopyStatus
-                  ? 'bg-emerald-50 dark:bg-emerald-950/45 text-emerald-600 dark:text-emerald-400 border-emerald-350'
-                  : 'bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+                  ? 'bg-neutral-100 dark:bg-white/10 text-neutral-900 dark:text-white border-black/5 dark:border-white/10'
+                  : 'bg-white/80 dark:bg-neutral-900/80 text-neutral-600 dark:text-neutral-300 border-black/5 dark:border-white/10 hover:bg-white dark:hover:bg-neutral-800'
               }`}
             >
               {markdownCopyStatus ? 'Copied MD Code!' : 'Copy raw Markdown'}
@@ -364,7 +364,7 @@ export default function BlockEditor({
             <button
               id="raw-apply-md-btn"
               onClick={handleApplyMarkdownChanges}
-              className="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-150 dark:hover:bg-neutral-250 text-white dark:text-neutral-950 rounded-lg text-[10px] font-bold shadow-xs cursor-pointer"
+              className="px-3 py-1.5 bg-neutral-900 hover:bg-neutral-800 dark:bg-neutral-150 dark:hover:bg-neutral-250 text-white dark:text-neutral-950 rounded-full text-[10px] font-medium shadow-sm cursor-pointer"
             >
               Apply Changes & Sync
             </button>
@@ -375,8 +375,8 @@ export default function BlockEditor({
       {editorMode === 'markdown' ? (
         /* Markdown Raw Editor View Canvas */
         <div className="animate-fade-in space-y-4 pb-28 text-neutral-700 dark:text-neutral-200">
-          <div className="p-4 bg-yellow-50 dark:bg-yellow-950/20 text-yellow-800 dark:text-yellow-400 border border-yellow-105 dark:border-yellow-900/40 rounded-xl leading-relaxed text-xs">
-            <span className="font-bold">Markdown Synced Workspace:</span> Feel free to draft, modify, paste structure, or translate using raw markdown tags here. Press <span className="font-bold">Apply Changes & Sync</span> at the top-right to commit edits back into visual block cards!
+          <div className="p-4 bg-white/80 dark:bg-neutral-900/80 text-neutral-600 dark:text-neutral-300 border border-black/5 dark:border-white/10 rounded-2xl leading-relaxed text-xs shadow-sm">
+            <span className="font-semibold text-neutral-900 dark:text-white">Markdown synced workspace:</span> Draft, reorganize, or paste structure here, then apply changes to sync back into visual blocks.
           </div>
           <textarea
             id="raw-markdown-editor-box"
@@ -384,7 +384,7 @@ export default function BlockEditor({
             onChange={(e) => setRawMarkdown(e.target.value)}
             placeholder="# Title..."
             rows={22}
-            className="w-full font-mono text-sm leading-relaxed p-6 rounded-xl border border-neutral-250 dark:border-neutral-750 bg-neutral-50 dark:bg-neutral-950 text-neutral-800 dark:text-neutral-100 focus:border-neutral-800 dark:focus:border-neutral-300 outline-hidden tracking-normal shadow-xs resize-y"
+            className="w-full font-mono text-sm leading-relaxed p-6 rounded-2xl border border-black/5 dark:border-white/10 bg-white/80 dark:bg-neutral-950/80 text-neutral-800 dark:text-neutral-100 focus:border-neutral-900 dark:focus:border-neutral-300 outline-hidden tracking-normal shadow-sm resize-y"
           />
         </div>
       ) : (
@@ -402,7 +402,7 @@ export default function BlockEditor({
                 onUpdateBlocks(currentPage.blocks);
                 currentPage.title = e.target.value; // Immediate reactive UI reflect
               }}
-              className="w-full text-3.5xl md:text-4.5xl font-extrabold text-neutral-800 dark:text-white placeholder-neutral-200 border-0 outline-hidden tracking-tight bg-transparent"
+              className="w-full text-3xl md:text-4xl font-semibold text-neutral-900 dark:text-white placeholder-neutral-300 border-0 outline-hidden tracking-tight bg-transparent"
               placeholder="Untitled Page"
             />
           </div>
@@ -422,13 +422,13 @@ export default function BlockEditor({
               {/* Block Action Controls Side-Hanger */}
               <div
                 id={`controls-hanger-${block.id}`}
-                className="absolute -left-12 top-1.5 opacity-0 group-hover/block:opacity-100 flex items-center gap-1 shrink-0 bg-neutral-50/90 border border-neutral-100 p-0.5 rounded shadow-xs z-10 transition-opacity duration-150"
+                className="absolute -left-12 top-1.5 opacity-0 group-hover/block:opacity-100 flex items-center gap-1 shrink-0 bg-white/90 dark:bg-neutral-950/90 border border-black/5 dark:border-white/10 p-0.5 rounded-full shadow-sm z-10 transition-opacity duration-150 backdrop-blur-xl"
               >
                 <button
                   id={`block-add-${block.id}`}
                   onClick={() => handleAddBlockBelow(index)}
                   title="Add block below"
-                  className="p-1 rounded hover:bg-neutral-200 text-neutral-500 cursor-pointer"
+                  className="p-1 rounded-full hover:bg-black/5 text-neutral-500 cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
                 </button>
@@ -437,7 +437,7 @@ export default function BlockEditor({
                     id={`block-up-${block.id}`}
                     onClick={() => handleMoveBlock(index, 'up')}
                     disabled={index === 0}
-                    className="p-0.5 rounded hover:bg-neutral-200 text-neutral-400 disabled:opacity-30 cursor-pointer"
+                    className="p-0.5 rounded-full hover:bg-black/5 text-neutral-400 disabled:opacity-30 cursor-pointer"
                   >
                     <ArrowUp className="w-3 h-3" />
                   </button>
@@ -445,7 +445,7 @@ export default function BlockEditor({
                     id={`block-down-${block.id}`}
                     onClick={() => handleMoveBlock(index, 'down')}
                     disabled={index === blocks.length - 1}
-                    className="p-0.5 rounded hover:bg-neutral-200 text-neutral-400 disabled:opacity-30 cursor-pointer"
+                    className="p-0.5 rounded-full hover:bg-black/5 text-neutral-400 disabled:opacity-30 cursor-pointer"
                   >
                     <ArrowDown className="w-3 h-3" />
                   </button>
@@ -459,7 +459,7 @@ export default function BlockEditor({
                     setAiError(null);
                   }}
                   title="Ask Gemini assistant (AI)"
-                  className="p-1 rounded hover:bg-emerald-50 text-emerald-600 hover:text-emerald-700 cursor-pointer"
+                  className="p-1 rounded-full hover:bg-black/5 text-neutral-600 hover:text-neutral-900 cursor-pointer"
                 >
                   <Sparkles className="w-3.5 h-3.5 animate-pulse" />
                 </button>
@@ -467,7 +467,7 @@ export default function BlockEditor({
                   id={`block-delete-${block.id}`}
                   onClick={() => handleDeleteBlock(index)}
                   title="Delete block"
-                  className="p-1 rounded hover:bg-red-50 text-neutral-500 hover:text-red-600 cursor-pointer"
+                  className="p-1 rounded-full hover:bg-black/5 text-neutral-500 hover:text-red-600 cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                 </button>

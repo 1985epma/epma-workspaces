@@ -459,50 +459,50 @@ export default function AdminBillingCenter({ isOpen, onClose, currentUserEmail }
   if (!isOpen) return null;
 
   return (
-    <div id="admin-billing-backdrop" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-950/50 backdrop-blur-xs select-none">
+    <div id="admin-billing-backdrop" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm select-none">
       
       <motion.div
         initial={{ opacity: 0, scale: 0.98, y: 15 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.98, y: 15 }}
-        className="bg-white rounded-3xl shadow-2xl border border-neutral-200 text-neutral-800 max-w-6xl w-full h-[700px] flex flex-col overflow-hidden"
+        className="bg-white rounded-[32px] shadow-[0_30px_90px_rgba(17,17,17,0.16)] border border-black/5 text-neutral-800 max-w-6xl w-full h-[700px] flex flex-col overflow-hidden"
       >
         
         {/* HEADER BRAND BAR */}
-        <div className="px-6 py-4 bg-neutral-900 text-white flex items-center justify-between border-b border-neutral-800">
+        <div className="px-6 py-4 bg-white text-neutral-900 flex items-center justify-between border-b border-black/5">
           <div className="flex items-center gap-3">
-            <div className="px-2.5 py-0.5 bg-indigo-600 rounded text-xs font-black tracking-widest text-neutral-100">
+            <div className="px-2.5 py-0.5 bg-neutral-900 rounded-full text-xs font-semibold tracking-widest text-white">
               EPMA CORE
             </div>
             <div>
               <h2 className="text-sm font-extrabold tracking-tight flex items-center gap-2">
                 Multi-Tenant Administration 
-                <span className="text-[10px] font-sans font-normal px-2 py-0.5 rounded-full bg-neutral-800 text-neutral-400 capitalize">
+                <span className="text-[10px] font-sans font-medium px-2 py-0.5 rounded-full bg-neutral-100 text-neutral-600 capitalize border border-black/5">
                   {isSuperAdmin ? 'Master admin session' : 'Client Self-service'}
                 </span>
               </h2>
-              <p className="text-[10px] text-neutral-405 leading-none">Registered to account: {currentUserEmail}</p>
+              <p className="text-[10px] text-neutral-500 leading-none">Registered to account: {currentUserEmail}</p>
             </div>
           </div>
           
           <button
             onClick={onClose}
-            className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-xs font-bold text-neutral-150 hover:text-white transition cursor-pointer border border-neutral-700"
+            className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-neutral-900 hover:bg-neutral-800 text-xs font-medium text-white transition cursor-pointer shadow-sm"
             title="Voltar para o Workspace"
           >
-            <ArrowLeft className="w-4 h-4 text-indigo-400" />
+            <ArrowLeft className="w-4 h-4 text-white" />
             <span>Voltar ao Workspace</span>
           </button>
         </div>
 
         {/* RECTO VIEW PORT LAYOUT with Tabs rail */}
-        <div className="flex flex-1 overflow-hidden min-h-0 bg-neutral-50/20">
+        <div className="flex flex-1 overflow-hidden min-h-0 bg-neutral-50/60">
           
           {/* SIDER TAB SELECTORS */}
-          <div className="w-60 bg-neutral-50 border-r border-neutral-200 p-4 space-y-4 flex flex-col justify-between shrink-0">
+          <div className="w-60 bg-white border-r border-black/5 p-4 space-y-4 flex flex-col justify-between shrink-0">
             
             <div className="space-y-1.5">
-              <span className="text-[10px] font-extrabold tracking-wider text-neutral-400 px-1.5 uppercase">Navigation Ledger</span>
+              <span className="text-[10px] font-semibold tracking-wider text-neutral-400 px-1.5 uppercase">Navigation</span>
               
               {/* My Account client self-serve tab */}
               <button
@@ -510,8 +510,8 @@ export default function AdminBillingCenter({ isOpen, onClose, currentUserEmail }
                 onClick={() => setActiveTab('my-tenant')}
                 className={`w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
                   activeTab === 'my-tenant'
-                    ? 'bg-white shadow-xs border border-neutral-200 text-neutral-900'
-                    : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-150/40'
+                    ? 'bg-neutral-100 shadow-sm border border-black/5 text-neutral-900'
+                    : 'text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.03]'
                 }`}
               >
                 <Building2 className={`w-4 h-4 ${activeTab === 'my-tenant' ? 'text-indigo-600' : 'text-neutral-400'}`} />
@@ -521,8 +521,8 @@ export default function AdminBillingCenter({ isOpen, onClose, currentUserEmail }
               {/* Superadmin accounts manager view (Disabled or flagged for standard domains) */}
               {isSuperAdmin && (
                 <>
-                  <div className="border-t border-neutral-200 my-2 pt-2">
-                    <span className="text-[10px] font-extrabold tracking-wider text-neutral-400 px-1.5 uppercase">Master Admin Settings</span>
+                    <div className="border-t border-black/5 my-2 pt-2">
+                    <span className="text-[10px] font-semibold tracking-wider text-neutral-400 px-1.5 uppercase">Master admin settings</span>
                   </div>
 
                   <button
@@ -531,7 +531,7 @@ export default function AdminBillingCenter({ isOpen, onClose, currentUserEmail }
                     className={`w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-left ${
                       activeTab === 'all-tenants'
                         ? 'bg-neutral-900 text-white'
-                        : 'text-neutral-500 hover:text-neutral-900 hover:bg-neutral-150/40'
+                          : 'text-neutral-500 hover:text-neutral-900 hover:bg-black/[0.03]'
                     }`}
                   >
                     <div className="flex items-center gap-2.5">

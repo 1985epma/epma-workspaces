@@ -250,7 +250,7 @@ export default function BillingModal({ isOpen, onClose, userEmail }: BillingModa
   if (!isOpen) return null;
 
   return (
-    <div id="billing-modal-backdrop" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-900/40 backdrop-blur-xs select-none">
+    <div id="billing-modal-backdrop" className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/30 backdrop-blur-sm select-none">
       
       {/* Modal Card wrapper */}
       <motion.div
@@ -258,30 +258,30 @@ export default function BillingModal({ isOpen, onClose, userEmail }: BillingModa
         animate={{ opacity: 1, scale: 1, y: 0 }}
         exit={{ opacity: 0, scale: 0.97, y: 10 }}
         id="billing-modal-card"
-        className="bg-white rounded-3xl shadow-2xl border border-neutral-200 max-w-4xl w-full h-[640px] flex flex-col md:flex-row overflow-hidden relative"
+        className="bg-white rounded-[32px] shadow-[0_30px_90px_rgba(17,17,17,0.16)] border border-black/5 max-w-4xl w-full h-[640px] flex flex-col md:flex-row overflow-hidden relative"
       >
         
         {/* Absolute Close button */}
         <button
           onClick={onClose}
-          className="absolute top-5 right-5 z-20 p-1.5 rounded-full bg-neutral-100 hover:bg-neutral-200 text-neutral-500 hover:text-neutral-900 transition-colors cursor-pointer"
+          className="absolute top-5 right-5 z-20 p-1.5 rounded-full bg-white/90 hover:bg-white text-neutral-500 hover:text-neutral-900 border border-black/5 transition-colors cursor-pointer"
           title="Close dialog"
         >
           <X className="w-4 h-4" />
         </button>
 
         {/* LEFT COMPANION PANEL: Detailed subscription features list */}
-        <div className="w-full md:w-80 bg-neutral-900 text-white p-8 flex flex-col justify-between shrink-0 relative overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(120,119,198,0.15),transparent)] pointer-events-none" />
+        <div className="w-full md:w-80 bg-neutral-50 text-neutral-900 p-8 flex flex-col justify-between shrink-0 relative overflow-hidden border-r border-black/5">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(17,17,17,0.04),transparent)] pointer-events-none" />
           
           <div className="space-y-6 z-10">
             <div className="flex items-center gap-2">
-              <span className={`px-2 py-0.5 text-white rounded text-[10px] font-black tracking-widest uppercase ${
+                <span className={`px-2 py-0.5 text-white rounded-full text-[10px] font-semibold tracking-widest uppercase ${
                 selectedTier === 'Enterprise'
-                  ? 'bg-gradient-to-r from-emerald-500 to-indigo-600 animate-pulse'
+                  ? 'bg-neutral-900'
                   : selectedTier === 'Pro'
-                    ? 'bg-indigo-600'
-                    : 'bg-neutral-600'
+                    ? 'bg-neutral-700'
+                    : 'bg-neutral-500'
               }`}>
                 {selectedTier}
               </span>
@@ -289,17 +289,17 @@ export default function BillingModal({ isOpen, onClose, userEmail }: BillingModa
             </div>
 
             <div>
-              <p className="text-xs text-neutral-400">Current active tier:</p>
+              <p className="text-xs text-neutral-500">Current active tier:</p>
               <div className="flex items-center gap-1.5 mt-1">
-                <span className="text-lg font-bold text-neutral-100">{currentPlan} Plan</span>
+                <span className="text-lg font-semibold text-neutral-900">{currentPlan} Plan</span>
                 {currentPlan !== 'Free' && (
-                  <span className="px-2 py-0.5 bg-emerald-500/10 text-emerald-400 rounded-full font-bold text-[10px] border border-emerald-500/30">Active</span>
+                  <span className="px-2 py-0.5 bg-neutral-900 text-white rounded-full font-medium text-[10px]">Active</span>
                 )}
               </div>
             </div>
 
-            <div className="border-t border-neutral-800 pt-6 space-y-4">
-              <p className="text-xs font-bold text-neutral-400 tracking-wider uppercase">Plan Benefits Included</p>
+            <div className="border-t border-black/5 pt-6 space-y-4">
+              <p className="text-xs font-semibold text-neutral-500 tracking-wider uppercase">Plan benefits included</p>
               
               <div className="space-y-3">
                 {selectedTier === 'Enterprise' ? (

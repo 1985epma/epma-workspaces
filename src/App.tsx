@@ -356,7 +356,7 @@ export default function App() {
   }
 
   return (
-    <div className={`flex h-screen w-screen overflow-hidden font-sans select-none antialiased bg-white dark:bg-neutral-900 text-neutral-800 dark:text-neutral-100 transition-colors ${theme}`}>
+    <div className={`flex h-screen w-screen overflow-hidden font-sans antialiased notion-shell text-neutral-800 dark:text-neutral-100 transition-colors ${theme}`}>
       {/* Sidebar workspace drawers */}
       <Sidebar
         pages={pages}
@@ -376,7 +376,7 @@ export default function App() {
       />
 
       {/* Main viewport canvas */}
-      <div className="flex-1 flex flex-col min-w-0 bg-white dark:bg-neutral-900 overflow-hidden relative transition-colors">
+      <div className="flex-1 flex flex-col min-w-0 bg-transparent overflow-hidden relative transition-colors">
         <AnimatePresence mode="wait">
           {currentPage ? (
             <motion.div
@@ -409,7 +409,7 @@ export default function App() {
               />
 
               {/* Dynamic rendering: Editor vs Database Tab Table */}
-              <div className="flex-1 min-w-0 pt-20">
+              <div className="flex-1 min-w-0 pt-16">
                 {currentPage.isDatabase ? (
                   <DatabaseView
                     currentPage={currentPage}
@@ -427,16 +427,16 @@ export default function App() {
               </div>
             </motion.div>
           ) : (
-            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-zinc-50/50">
-              <div className="w-16 h-16 rounded-2xl bg-neutral-150 border border-neutral-200 flex items-center justify-center text-neutral-400 mb-4 shadow-sm">
+            <div className="flex-1 flex flex-col items-center justify-center p-8 text-center bg-transparent">
+              <div className="w-16 h-16 rounded-[22px] bg-white/80 border border-black/5 flex items-center justify-center text-neutral-400 mb-4 shadow-[0_18px_40px_rgba(17,17,17,0.06)] backdrop-blur-sm">
                 <HelpCircle className="w-8 h-8" />
               </div>
-              <h3 className="text-lg font-bold text-neutral-800">No open documents</h3>
-              <p className="text-sm text-neutral-400 max-w-xs mt-1">Select an item from the sidebar drawer on the left side or create a new page.</p>
+              <h3 className="text-lg font-semibold text-neutral-800">No open documents</h3>
+              <p className="text-sm text-neutral-500 max-w-xs mt-1 leading-relaxed">Select a page from the sidebar or create a new note to begin.</p>
               <button
                 id="empty-state-add-btn"
                 onClick={() => handleAddPage(null, false)}
-                className="mt-4 px-4 py-2 bg-neutral-900 text-white rounded-lg text-xs font-semibold hover:bg-neutral-800 shadow transition-all cursor-pointer"
+                className="mt-4 px-4 py-2 bg-neutral-900 text-white rounded-full text-xs font-medium hover:bg-neutral-800 shadow-sm transition-all cursor-pointer"
               >
                 Create First Page
               </button>

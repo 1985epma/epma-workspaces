@@ -16,7 +16,6 @@ import {
   Printer,
   ClipboardCheck,
   ClipboardCopy,
-  ExternalLink
 } from 'lucide-react';
 import { Page } from '../types';
 
@@ -50,7 +49,6 @@ export default function PageHeader({
 
   if (!currentPage) return null;
 
-  // Build breadcrumbs recursively
   const getBreadcrumbs = (page: Page): Page[] => {
     const list: Page[] = [page];
     let current = page;
@@ -73,14 +71,9 @@ export default function PageHeader({
       const { compileToMarkdown, compileToWordCompatibleHtml } = await import('../utils/markdown');
       const md = compileToMarkdown(currentPage);
       const html = compileToWordCompatibleHtml(currentPage);
-
-      const blobHtml = new Blob([html], { type: 'text/html' });
-      const blobText = new Blob([md], { type: 'text/plain' });
-
-      // Create clipboard item to hold both HTML for MS Word pasting and Markdown for text pasting
       const item = new ClipboardItem({
-        'text/html': blobHtml,
-        'text/plain': blobText
+        'text/html': new Blob([html], { type: 'text/html' }),
+        'text/plain': new Blob([md], { type: 'text/plain' }),
       });
 
       await navigator.clipboard.write([item]);
@@ -88,11 +81,9 @@ export default function PageHeader({
       setTimeout(() => setCopied(false), 2000);
     } catch (err) {
       console.error('Failed to copy formatted note:', err);
-      // Fallback to text matching
       try {
         const { compileToMarkdown } = await import('../utils/markdown');
-        const mdText = compileToMarkdown(currentPage);
-        await navigator.clipboard.writeText(mdText);
+        await navigator.clipboard.writeText(compileToMarkdown(currentPage));
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
       } catch (fallbackErr) {
@@ -109,25 +100,25 @@ export default function PageHeader({
     }, 1500);
   };
 
+  const buttonBase = 'p-1.5 rounded-full border border-black/5 dark:border-white/10 bg-white/80 dark:bg-neutral-900/80 transition-colors cursor-pointer';
+
   return (
     <header
       id={`page-header-${currentPage.id}`}
-      className="h-14 border-b border-neutral-200/80 dark:border-neutral-800/80 px-4 flex items-center justify-between bg-white dark:bg-neutral-900 shrink-0 sticky top-0 z-20 transition-colors"
+      className="h-14 px-4 flex items-center justify-between bg-white/80 dark:bg-neutral-950/80 backdrop-blur-xl border-b border-black/5 dark:border-white/5 shrink-0 sticky top-0 z-20 transition-colors"
     >
       <div className="flex items-center gap-1.5 min-w-0 flex-1">
-        {/* Toggle Sidebar menu trigger */}
         {!sidebarOpen && (
           <button
             id="sidebar-open-toggle"
             onClick={onToggleSidebar}
-            className="p-1.5 rounded hover:bg-neutral-100 dark:hover:bg-neutral-800 text-neutral-600 dark:text-neutral-300 mr-1 cursor-pointer shrink-0"
+            className="p-1.5 rounded-full hover:bg-black/5 dark:hover:bg-white/5 text-neutral-600 dark:text-neutral-300 mr-1 cursor-pointer shrink-0"
             title="Open Sidebar"
           >
             <Menu className="w-4 h-4" />
           </button>
         )}
 
-        {/* Breadcrumb path */}
         <div className="flex items-center gap-1 text-sm text-neutral-500 dark:text-neutral-400 min-w-0">
           {breadcrumbs.map((crumb, index) => {
             const isLast = index === breadcrumbs.length - 1;
@@ -137,7 +128,7 @@ export default function PageHeader({
                 <button
                   id={`breadcrumb-crumb-${crumb.id}`}
                   onClick={() => onSelectPage(crumb.id)}
-                  className={`flex items-center gap-1 text-xs px-1.5 py-1 rounded truncate hover:bg-neutral-100 dark:hover:bg-neutral-800 transition shrink-0 ${
+                  className={`flex items-center gap-1 text-xs px-1.5 py-1 rounded-full truncate hover:bg-black/5 dark:hover:bg-white/5 transition shrink-0 ${
                     isLast ? 'text-neutral-900 dark:text-white font-medium' : 'text-neutral-500 dark:text-neutral-400'
                   }`}
                 >
@@ -150,84 +141,72 @@ export default function PageHeader({
         </div>
       </div>
 
-      {/* Dynamic Action controls */}
       <div className="flex items-center gap-1.5 shrink-0 ml-2">
-        {/* Print Toast instruction Alert Bubble */}
         {showPrintToast && (
-          <span className="text-[10px] bg-indigo-600 text-white font-bold px-2.5 py-1 rounded-full animate-pulse select-none font-sans">
-            Opening print window! Set 'Save as PDF' as your dest. 📄
+          <span className="text-[10px] bg-neutral-900 text-white font-medium px-2.5 py-1 rounded-full animate-pulse select-none font-sans">
+            Opening print window. Save as PDF in the browser dialog.
           </span>
         )}
 
-        {/* Word and Markdown styled copying */}
         <button
           id={`copy-word-compatible-${currentPage.id}`}
           onClick={handleCopyToClipboard}
-          className={`p-1.5 rounded-lg border transition-all flex items-center justify-center cursor-pointer ${
+          className={`${buttonBase} ${
             copied
-              ? 'bg-emerald-50 dark:bg-emerald-950/45 text-emerald-600 dark:text-emerald-400 border-emerald-300'
-              : 'bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+              ? 'bg-neutral-100 dark:bg-white/10 text-neutral-900 dark:text-white'
+              : 'text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-800'
           }`}
           title="Copy formatted document (Word & Markdown compatible!)"
         >
-          {copied ? <ClipboardCheck className="w-4 h-4 text-emerald-600" /> : <ClipboardCopy className="w-4 h-4" />}
+          {copied ? <ClipboardCheck className="w-4 h-4" /> : <ClipboardCopy className="w-4 h-4" />}
         </button>
 
-        {/* High fidelity print PDF trigger */}
         {!currentPage.isDatabase && (
           <button
             id={`export-pdf-document-${currentPage.id}`}
             onClick={handleExportPdf}
-            className="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors flex items-center justify-center cursor-pointer"
+            className={`${buttonBase} text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-800`}
             title="Export this note as PDF / Exportar para PDF"
           >
             <Printer className="w-4 h-4" />
           </button>
         )}
 
-        {/* Database mode toggle button */}
         <button
           id={`toggle-db-mode-${currentPage.id}`}
           onClick={() => onToggleDatabaseMode(currentPage.id)}
-          className={`p-1.5 rounded-lg cursor-pointer border transition-all ${
+          className={`${buttonBase} ${
             currentPage.isDatabase
-              ? 'bg-indigo-50 dark:bg-indigo-950/30 text-indigo-700 dark:text-indigo-400 border-indigo-200 dark:border-indigo-800'
-              : 'bg-white dark:bg-neutral-900 text-neutral-600 dark:text-neutral-300 border-neutral-200 dark:border-neutral-700 hover:bg-neutral-50 dark:hover:bg-neutral-800'
+              ? 'bg-neutral-100 dark:bg-white/10 text-neutral-900 dark:text-white'
+              : 'text-neutral-600 dark:text-neutral-300 hover:bg-white dark:hover:bg-neutral-800'
           }`}
           title={currentPage.isDatabase ? 'Change to standard document' : 'Change to Database structured Table'}
         >
-          {currentPage.isDatabase ? (
-            <Database className="w-4 h-4" />
-          ) : (
-            <FileText className="w-4 h-4" />
-          )}
+          {currentPage.isDatabase ? <Database className="w-4 h-4" /> : <FileText className="w-4 h-4" />}
         </button>
 
-        {/* Light & Dark Visual switcher theme */}
         <button
           id="global-theme-toggle-btn"
           onClick={onToggleTheme}
-          className="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white hover:bg-neutral-50 dark:hover:bg-neutral-800 transition-colors cursor-pointer"
+          className={`${buttonBase} text-neutral-500 dark:text-neutral-400 hover:text-neutral-800 dark:hover:text-white hover:bg-white dark:hover:bg-neutral-800`}
           title={`Switch color theme to ${theme === 'dark' ? 'Light' : 'Dark'}`}
         >
-          {theme === 'dark' ? <Sun className="w-4 h-4 text-amber-400 fill-amber-300" /> : <Moon className="w-4 h-4 text-zinc-500" />}
+          {theme === 'dark' ? <Sun className="w-4 h-4 text-neutral-700" /> : <Moon className="w-4 h-4 text-neutral-500" />}
         </button>
 
-        {/* Favorite Star action */}
         <button
           id={`favorite-toggle-${currentPage.id}`}
           onClick={() => onToggleFavorite(currentPage.id)}
-          className={`p-1.5 rounded-lg border transition-colors cursor-pointer ${
+          className={`${buttonBase} ${
             currentPage.isFavorite
-              ? 'bg-amber-50 dark:bg-amber-950/20 text-amber-500 border-amber-200 dark:border-amber-800 hover:bg-amber-100'
-              : 'bg-white dark:bg-neutral-900 text-neutral-400 dark:text-neutral-500 border-neutral-200 dark:border-neutral-700 hover:text-neutral-650'
+              ? 'bg-neutral-100 dark:bg-white/10 text-neutral-900 dark:text-white'
+              : 'text-neutral-400 dark:text-neutral-500 hover:text-neutral-700 dark:hover:text-neutral-200 hover:bg-white dark:hover:bg-neutral-800'
           }`}
           title="Toggle favorites"
         >
-          <Star className={`w-4 h-4 ${currentPage.isFavorite ? 'fill-amber-500' : ''}`} />
+          <Star className={`w-4 h-4 ${currentPage.isFavorite ? 'fill-current' : ''}`} />
         </button>
 
-        {/* Delete page action */}
         <button
           id={`delete-page-${currentPage.id}`}
           onClick={() => {
@@ -235,7 +214,7 @@ export default function PageHeader({
               onDeletePage(currentPage.id);
             }
           }}
-          className="p-1.5 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900 text-neutral-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 hover:border-red-100 transition-colors cursor-pointer"
+          className="p-1.5 rounded-full border border-black/5 dark:border-white/10 bg-white/80 dark:bg-neutral-900/80 text-neutral-400 hover:text-red-600 hover:bg-red-50/60 dark:hover:bg-red-950/30 transition-colors cursor-pointer"
           title="Delete current page"
         >
           <Trash2 className="w-4 h-4" />

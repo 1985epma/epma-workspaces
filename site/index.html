@@ -1,0 +1,668 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EPMA Workspace</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --bg: #f2efe8;
+        --panel: rgba(255, 255, 255, 0.8);
+        --panel-strong: rgba(255, 255, 255, 0.95);
+        --text: #111111;
+        --muted: #606060;
+        --line: rgba(17, 17, 17, 0.08);
+        --shadow: 0 30px 90px rgba(17, 17, 17, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--bg);
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background:
+          radial-gradient(circle at top, rgba(255, 255, 255, 0.92), transparent 38%),
+          linear-gradient(180deg, #f7f6f2 0%, #f2efe8 100%);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .grid-overlay {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          linear-gradient(to right, rgba(17, 17, 17, 0.035) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(17, 17, 17, 0.035) 1px, transparent 1px);
+        background-size: 44px 44px;
+        mask-image: radial-gradient(circle at top, black 60%, transparent 100%);
+      }
+
+      .container {
+        width: min(1180px, calc(100vw - 3rem));
+        margin: 0 auto;
+      }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(18px);
+        background: rgba(255, 255, 255, 0.78);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .topbar-inner {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1rem 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
+
+      .brand-badge {
+        border: 1px solid var(--line);
+        background: #111111;
+        color: #fff;
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.22em;
+      }
+
+      .brand-text {
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        gap: 1.4rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
+      .nav a:hover,
+      .footer-links a:hover {
+        color: var(--text);
+      }
+
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        padding: 0.7rem 1rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-1px);
+      }
+
+      .btn-primary {
+        background: #111111;
+        color: #fff;
+        border-color: transparent;
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.92);
+        color: #232323;
+      }
+
+      .hero {
+        padding: 5rem 0 3rem;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.05fr 0.95fr;
+        gap: 2.5rem;
+        align-items: center;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: #565656;
+        border-radius: 999px;
+        padding: 0.45rem 0.8rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        box-shadow: 0 8px 28px rgba(17, 17, 17, 0.05);
+        backdrop-filter: blur(10px);
+      }
+
+      h1 {
+        margin: 1.1rem 0 0;
+        max-width: 12ch;
+        font-size: clamp(3rem, 7vw, 5.8rem);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+      }
+
+      .lead {
+        margin: 1.25rem 0 0;
+        max-width: 42rem;
+        color: var(--muted);
+        font-size: 1.02rem;
+        line-height: 1.75;
+      }
+
+      .hero-cta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-top: 1.8rem;
+      }
+
+      .pills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.7rem;
+        margin-top: 1.8rem;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.55rem 0.8rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: #5b5b5b;
+        font-size: 0.78rem;
+        box-shadow: 0 8px 24px rgba(17, 17, 17, 0.04);
+        backdrop-filter: blur(10px);
+      }
+
+      .preview {
+        position: relative;
+      }
+
+      .preview::before {
+        content: "";
+        position: absolute;
+        inset: -1.5rem;
+        border-radius: 2rem;
+        background: rgba(17, 17, 17, 0.05);
+        filter: blur(42px);
+      }
+
+      .card {
+        position: relative;
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: 2rem;
+        box-shadow: var(--shadow);
+        backdrop-filter: blur(16px);
+      }
+
+      .preview-card {
+        padding: 1.2rem;
+      }
+
+      .preview-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .small-label {
+        color: #9b9b9b;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.22em;
+      }
+
+      .preview-title {
+        margin-top: 0.3rem;
+        font-size: 1.15rem;
+        font-weight: 650;
+      }
+
+      .status-chip {
+        border: 1px solid var(--line);
+        background: #fafafa;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        color: #666;
+        font-size: 0.72rem;
+        font-weight: 600;
+      }
+
+      .preview-body {
+        display: grid;
+        grid-template-columns: 0.95fr 1.05fr;
+        gap: 1rem;
+        margin-top: 1rem;
+      }
+
+      .mini-panel {
+        background: #f7f6f2;
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+        padding: 1rem;
+      }
+
+      .mini-row {
+        display: flex;
+        align-items: center;
+        gap: 0.85rem;
+        margin-bottom: 0.85rem;
+      }
+
+      .emoji-box {
+        width: 2.7rem;
+        height: 2.7rem;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 0.95rem;
+        box-shadow: 0 6px 20px rgba(17, 17, 17, 0.04);
+      }
+
+      .mini-list {
+        display: grid;
+        gap: 0.6rem;
+        color: #4f4f4f;
+        font-size: 0.92rem;
+      }
+
+      .mini-list div {
+        border: 1px solid var(--line);
+        background: white;
+        border-radius: 1rem;
+        padding: 0.75rem 0.8rem;
+      }
+
+      .summary-panel {
+        background: #f7f5ef;
+        border: 1px solid var(--line);
+        border-radius: 1.5rem;
+        padding: 1rem;
+      }
+
+      .summary-box {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 1.35rem;
+        padding: 1rem;
+        box-shadow: 0 8px 28px rgba(17, 17, 17, 0.05);
+      }
+
+      .summary-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-top: 0.8rem;
+      }
+
+      .tag {
+        background: #f4f4f4;
+        border-radius: 999px;
+        padding: 0.45rem 0.75rem;
+        font-size: 0.76rem;
+        color: #5a5a5a;
+      }
+
+      .section {
+        margin-top: 4rem;
+      }
+
+      .section-title {
+        font-size: clamp(1.8rem, 3vw, 2.35rem);
+        line-height: 1.08;
+        letter-spacing: -0.04em;
+        margin: 0;
+      }
+
+      .section-subtitle {
+        max-width: 42rem;
+        margin: 0.75rem 0 0;
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      .feature-grid,
+      .pricing-grid {
+        display: grid;
+        gap: 1rem;
+      }
+
+      .feature-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 1.5rem;
+      }
+
+      .feature-card,
+      .price-card {
+        border-radius: 1.6rem;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        box-shadow: 0 10px 28px rgba(17, 17, 17, 0.05);
+        backdrop-filter: blur(12px);
+      }
+
+      .feature-card {
+        padding: 1.2rem;
+      }
+
+      .feature-card h3,
+      .price-card h3 {
+        margin: 0 0 0.45rem;
+        font-size: 1rem;
+      }
+
+      .feature-card p,
+      .price-card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+
+      .pricing-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        margin-top: 1.5rem;
+      }
+
+      .price-card {
+        padding: 1.4rem;
+      }
+
+      .price-value {
+        margin-top: 0.75rem;
+        font-size: 2.35rem;
+        font-weight: 650;
+        letter-spacing: -0.05em;
+      }
+
+      .checklist {
+        margin-top: 1.25rem;
+        display: grid;
+        gap: 0.6rem;
+        color: #454545;
+        font-size: 0.92rem;
+      }
+
+      .checklist div {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+
+      .check {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 999px;
+        background: #111;
+        color: #fff;
+        display: inline-grid;
+        place-items: center;
+        font-size: 0.65rem;
+        flex: 0 0 auto;
+      }
+
+      .footer {
+        margin-top: 4rem;
+        padding: 1.8rem 0 2.2rem;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+      }
+
+      .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.2rem;
+      }
+
+      @media (max-width: 900px) {
+        .hero-grid,
+        .preview-body,
+        .feature-grid,
+        .pricing-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .nav {
+          display: none;
+        }
+
+        .topbar-inner,
+        .footer-inner {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .container {
+          width: min(100vw - 1.5rem, 1180px);
+        }
+
+        .hero {
+          padding-top: 3.25rem;
+        }
+
+        h1 {
+          max-width: 100%;
+          font-size: clamp(2.8rem, 13vw, 4rem);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="grid-overlay"></div>
+
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand">
+            <div class="brand-badge">EPMA</div>
+            <div class="brand-text">Workspace</div>
+          </div>
+
+          <nav class="nav">
+            <a href="#features">Recursos</a>
+            <a href="#preview">Preview</a>
+            <a href="#pricing">Planos</a>
+          </nav>
+
+          <div class="actions">
+            <a class="btn btn-secondary" href="#preview">Ver preview</a>
+            <a class="btn btn-primary" href="#pricing">Começar grátis</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero">
+          <div class="container hero-grid">
+            <div>
+              <div class="eyebrow">AI workspace com escrita, organização e resumos</div>
+              <h1>Um workspace limpo para pensar com a AI.</h1>
+              <p class="lead">O EPMA combina notas, páginas aninhadas, tabelas relacionais e assistência generativa em uma interface leve, silenciosa e muito mais próxima do que um produto premium deveria parecer.</p>
+              <div class="hero-cta">
+                <a class="btn btn-primary" href="#pricing">Entrar na demo</a>
+                <a class="btn btn-secondary" href="#preview">Ver preview</a>
+              </div>
+              <div class="pills">
+                <span class="pill">SSO-ready</span>
+                <span class="pill">AI assistente</span>
+                <span class="pill">Tabelas relacionais</span>
+                <span class="pill">Busca global</span>
+              </div>
+            </div>
+
+            <div id="preview" class="preview">
+              <div class="card preview-card">
+                <div class="preview-header">
+                  <div>
+                    <div class="small-label">Preview digital</div>
+                    <div class="preview-title">EPMA Workspace</div>
+                  </div>
+                  <div class="status-chip">Live</div>
+                </div>
+
+                <div class="preview-body">
+                  <div class="mini-panel">
+                    <div class="mini-row">
+                      <div class="emoji-box">📝</div>
+                      <div>
+                        <div style="font-size: 0.95rem; font-weight: 650;">Estratégia do trimestre</div>
+                        <div style="color: var(--muted); font-size: 0.8rem; margin-top: 0.15rem;">Notas, blocos e AI na mesma superfície</div>
+                      </div>
+                    </div>
+                    <div class="mini-list">
+                      <div>• Reescreva e resuma blocos com um clique</div>
+                      <div>• Alterne entre documento e tabela sem ruído</div>
+                      <div>• Organize subpáginas e bases relacionais</div>
+                    </div>
+                  </div>
+
+                  <div class="summary-panel">
+                    <div class="small-label" style="margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.45rem;">
+                      <span style="font-size: 0.9rem;">🤖</span> AI summary
+                    </div>
+                    <div class="summary-box">
+                      <p style="margin: 0; color: #2f2f2f; line-height: 1.7;">Transforme notas dispersas em um plano claro, com prioridades, datas e responsabilidades.</p>
+                      <div class="summary-tags">
+                        <span class="tag">Resumo</span>
+                        <span class="tag">Checklist</span>
+                        <span class="tag">Tarefas</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="features" class="section container">
+          <h2 class="section-title">Três pilares de uma interface mais madura</h2>
+          <p class="section-subtitle">O caminho mais seguro para um visual próximo do Stitch é reduzir ruído, destacar o conteúdo e usar componentes que pareçam gerados por sistema, não por improviso.</p>
+
+          <div class="feature-grid">
+            <div class="feature-card">
+              <h3>Escreva com foco</h3>
+              <p>Tipografia limpa, editor leve e blocos sem poluição visual.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Organize com AI</h3>
+              <p>Resumos, expansão e reescrita dentro do fluxo de trabalho.</p>
+            </div>
+            <div class="feature-card">
+              <h3>Estruture dados</h3>
+              <p>Páginas, tabelas e propriedades conectadas sem complicação.</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="pricing" class="section container">
+          <h2 class="section-title">Planos simples, leitura rápida</h2>
+          <p class="section-subtitle">Cards claros, pouco contraste agressivo e uma hierarquia que deixa o produto parecer mais premium.</p>
+
+          <div class="pricing-grid">
+            <div class="price-card">
+              <div class="small-label">Free</div>
+              <div class="price-value">R$0</div>
+              <p>Para rascunhos e uso individual.</p>
+              <div class="checklist">
+                <div><span class="check">✓</span> Documentos aninhados</div>
+                <div><span class="check">✓</span> Assistência AI</div>
+                <div><span class="check">✓</span> Exportação limpa</div>
+              </div>
+            </div>
+
+            <div class="price-card" style="border-color: rgba(17,17,17,0.12); background: rgba(255,255,255,0.92);">
+              <div class="small-label">Pro</div>
+              <div class="price-value">U$8</div>
+              <p>Para equipes pequenas e trabalho diário.</p>
+              <div class="checklist">
+                <div><span class="check">✓</span> Documentos aninhados</div>
+                <div><span class="check">✓</span> Assistência AI</div>
+                <div><span class="check">✓</span> Exportação limpa</div>
+              </div>
+            </div>
+
+            <div class="price-card">
+              <div class="small-label">Enterprise</div>
+              <div class="price-value">U$19</div>
+              <p>Para times que precisam de controle e AI.</p>
+              <div class="checklist">
+                <div><span class="check">✓</span> Documentos aninhados</div>
+                <div><span class="check">✓</span> Assistência AI</div>
+                <div><span class="check">✓</span> Exportação limpa</div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <div class="container footer-inner">
+          <div style="font-weight: 600; color: #313131;">EPMA Workspace</div>
+          <div class="footer-links">
+            <a href="privacy.html">Privacidade</a>
+            <a href="security.html">Segurança</a>
+            <a href="status.html">Status</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
