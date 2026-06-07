@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EPMA Workspace - Segurança</title>
+    <title>Segurança — EPMA Workspace</title>
+    <link rel="canonical" href="https://epma.app/security.html" />
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="pt-BR"     href="https://epma.app/security.html" />
+    <link rel="alternate" hreflang="en"        href="https://epma.app/security.html" />
+    <link rel="alternate" hreflang="es"        href="https://epma.app/security.html" />
+    <link rel="alternate" hreflang="x-default" href="https://epma.app/security.html" />
+    <meta name="description" content="Como o EPMA Workspace protege seus dados: sessão, armazenamento local, integrações externas e boas práticas de segurança." />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://epma.app/security.html" />
+    <meta property="og:site_name"   content="EPMA Workspace" />
+    <meta property="og:locale"      content="pt_BR" />
+    <meta property="og:title"       content="Segurança — EPMA Workspace" />
+    <meta property="og:description" content="Como o EPMA Workspace protege seus dados: sessão, armazenamento e integrações seguras." />
+    <meta property="og:image"       content="https://epma.app/og-image.png" />
+    <meta name="twitter:card"       content="summary" />
+    <meta name="twitter:title"      content="Segurança — EPMA Workspace" />
+    <meta name="twitter:description" content="Segurança e proteção de dados no EPMA Workspace." />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Segurança","url":"https://epma.app/security.html","description":"Práticas de segurança do EPMA Workspace.","isPartOf":{"@type":"WebSite","name":"EPMA Workspace","url":"https://epma.app/"}}
+    </script>
     <style>
       :root { color-scheme: light; --bg:#f2efe8; --panel:rgba(255,255,255,.8); --panel-strong:rgba(255,255,255,.95); --text:#111; --muted:#606060; --line:rgba(17,17,17,.08); --shadow:0 30px 90px rgba(17,17,17,.12); }
       * { box-sizing:border-box; }
@@ -19,6 +39,11 @@
       .brand-badge { border:1px solid var(--line); background:#111; color:#fff; border-radius:999px; padding:.45rem .8rem; font-size:.72rem; font-weight:700; letter-spacing:.22em; }
       .brand-text { color:var(--muted); font-size:.95rem; font-weight:500; }
       .actions { display:flex; align-items:center; gap:.65rem; }
+      .lang-switch { display:inline-flex; align-items:center; gap:.55rem; padding:0; background:transparent; border:0; }
+      .lang-btn { width:2.65rem; height:2.65rem; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:#565765; color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(17,17,17,.12); font-size:1rem; font-weight:700; cursor:pointer; transition:transform .18s ease, background .18s ease, box-shadow .18s ease; }
+      .lang-btn:hover { transform:translateY(-1px); background:#616270; }
+      .lang-btn.is-active { background:#6a6b77; box-shadow:0 10px 24px rgba(17,17,17,.18), 0 0 0 2px rgba(255,255,255,.12) inset; }
+      .lang-flag { font-size:1.05rem; line-height:1; }
       .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:999px; border:1px solid var(--line); padding:.7rem 1rem; font-size:.82rem; font-weight:600; transition:transform .18s ease, background .18s ease, border-color .18s ease; }
       .btn:hover { transform:translateY(-1px); }
       .btn-primary { background:#111; color:#fff; border-color:transparent; }
@@ -40,46 +65,51 @@
       @media (max-width: 720px) { .container { width:min(100vw - 1.5rem, 980px); } .topbar-inner, .footer-inner { flex-direction:column; align-items:flex-start; } }
     </style>
   </head>
-  <body>
+  <body data-page="security">
     <div class="shell">
       <div class="grid-overlay"></div>
       <header class="topbar">
         <div class="container topbar-inner">
           <div class="brand"><div class="brand-badge">EPMA</div><div class="brand-text">Workspace</div></div>
           <div class="actions">
-            <a class="btn btn-secondary" href="index.html">Home</a>
-            <a class="btn btn-primary" href="privacy.html">Privacidade</a>
+            <div class="lang-switch" aria-label="Seletor de idioma">
+              <button class="lang-btn is-active" type="button" data-lang="pt-BR" aria-label="Português do Brasil"><span class="lang-flag">🇧🇷</span></button>
+              <button class="lang-btn" type="button" data-lang="en-US" aria-label="Inglês dos Estados Unidos"><span class="lang-flag">🇺🇸</span></button>
+              <button class="lang-btn" type="button" data-lang="es" aria-label="Espanhol"><span class="lang-flag">🇪🇸</span></button>
+            </div>
+            <a class="btn btn-secondary" href="index.html" data-i18n="footer.home">Home</a>
+            <a class="btn btn-primary" href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
           </div>
         </div>
       </header>
       <main class="container hero">
-        <div class="eyebrow">Documentação legal</div>
-        <h1>Segurança.</h1>
-        <p class="lead">Esta página resume como o EPMA Workspace trata sessão, armazenamento local, integração com serviços externos e recomendações para um ambiente de produção.</p>
+        <div class="eyebrow" data-i18n="eyebrow">Documentação legal</div>
+        <h1 data-i18n="title.main">Segurança.</h1>
+        <p class="lead" data-i18n="lead">Esta página resume como o EPMA Workspace trata sessão, armazenamento local, integração com serviços externos e recomendações para um ambiente de produção.</p>
 
         <section class="card doc" style="margin-top:1.6rem;">
-          <h2>1. Sessão e autenticação</h2>
-          <p>O protótipo mantém o estado de login no navegador. Em produção, isso deve ser substituído por tokens seguros, expiração de sessão e validação no servidor.</p>
+          <h2 data-i18n="section1.title">1. Sessão e autenticação</h2>
+          <p data-i18n="section1.text">O protótipo mantém o estado de login no navegador. Em produção, isso deve ser substituído por tokens seguros, expiração de sessão e validação no servidor.</p>
 
-          <h2>2. Armazenamento local</h2>
-          <p>Páginas, preferência de tema e metadados são persistidos no navegador para a experiência não ser perdida ao recarregar. Isso é conveniente, mas não substitui controles de segurança reais.</p>
+          <h2 data-i18n="section2.title">2. Armazenamento local</h2>
+          <p data-i18n="section2.text">Páginas, preferência de tema e metadados são persistidos no navegador para a experiência não ser perdida ao recarregar. Isso é conveniente, mas não substitui controles de segurança reais.</p>
 
-          <h2>3. Integrações externas</h2>
+          <h2 data-i18n="section3.title">3. Integrações externas</h2>
           <ul>
-            <li>Chamadas de AI devem passar por proxy de servidor com chave protegida.</li>
-            <li>Pagamentos e cobrança devem usar endpoints autenticados e validados.</li>
-            <li>Serviços externos precisam de limites de taxa e tratamento de falhas.</li>
+            <li data-i18n="section3.item1">Chamadas de AI devem passar por proxy de servidor com chave protegida.</li>
+            <li data-i18n="section3.item2">Pagamentos e cobrança devem usar endpoints autenticados e validados.</li>
+            <li data-i18n="section3.item3">Serviços externos precisam de limites de taxa e tratamento de falhas.</li>
           </ul>
 
-          <h2>4. Boas práticas recomendadas</h2>
+          <h2 data-i18n="section4.title">4. Boas práticas recomendadas</h2>
           <ul>
-            <li>Ativar HTTPS, cabeçalhos de segurança e políticas de conteúdo.</li>
-            <li>Separar ambiente de desenvolvimento, staging e produção.</li>
-            <li>Registrar auditoria para ações sensíveis como exclusão e exportação.</li>
+            <li data-i18n="section4.item1">Ativar HTTPS, cabeçalhos de segurança e políticas de conteúdo.</li>
+            <li data-i18n="section4.item2">Separar ambiente de desenvolvimento, staging e produção.</li>
+            <li data-i18n="section4.item3">Registrar auditoria para ações sensíveis como exclusão e exportação.</li>
           </ul>
 
           <div class="callout">
-            <strong>Nota:</strong> para um deploy público, vale adicionar criptografia em repouso, políticas de retenção e revisão periódica das integrações.
+            <strong data-i18n="callout">Nota:</strong> para um deploy público, vale adicionar criptografia em repouso, políticas de retenção e revisão periódica das integrações.
           </div>
         </section>
       </main>
@@ -87,12 +117,13 @@
         <div class="container footer-inner">
           <div style="font-weight:600;color:#313131;">EPMA Workspace</div>
           <div class="footer-links">
-            <a href="privacy.html">Privacidade</a>
-            <a href="status.html">Status</a>
-            <a href="index.html">Home</a>
+            <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
+            <a href="status.html" data-i18n="footer.status">Status</a>
+            <a href="index.html" data-i18n="footer.home">Home</a>
           </div>
         </div>
       </footer>
+      <script src="i18n.js"></script>
     </div>
   </body>
 </html>

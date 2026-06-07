@@ -3,47 +3,208 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EPMA Workspace</title>
+    <title>EPMA Workspace — Notas, dados e AI em uma tela só</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%235B6AF8'/%3E%3Cpath d='M8 10h10v2H8zm0 5h16v2H8zm0 5h12v2H8z' fill='white'/%3E%3Ccircle cx='24' cy='10' r='3' fill='white'/%3E%3C/svg%3E" />
+
+    <!-- Canonical & indexing -->
+    <link rel="canonical" href="https://epma.app/" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- hreflang — multilingual signals -->
+    <link rel="alternate" hreflang="pt-BR"    href="https://epma.app/" />
+    <link rel="alternate" hreflang="en"       href="https://epma.app/" />
+    <link rel="alternate" hreflang="es"       href="https://epma.app/" />
+    <link rel="alternate" hreflang="x-default" href="https://epma.app/" />
+
+    <!-- Primary meta -->
+    <meta name="description" content="EPMA Workspace — escreva, organize com AI e estruture dados em uma interface limpa. O workspace que seu time vai realmente usar." />
+    <meta name="keywords" content="workspace, AI, notas, organização, tabelas, produtividade, SaaS, colaboração" />
+    <meta name="author" content="EPMA Workspace" />
+
+    <!-- Open Graph -->
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://epma.app/" />
+    <meta property="og:site_name"   content="EPMA Workspace" />
+    <meta property="og:locale"      content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:title"       content="EPMA Workspace — Notas, dados e AI em uma tela só" />
+    <meta property="og:description" content="O workspace que seu time vai realmente usar. Escreva, organize com AI e estruture dados — sem trocar de ferramenta." />
+    <meta property="og:image"       content="https://epma.app/og-image.png" />
+    <meta property="og:image:width"  content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt"    content="EPMA Workspace — interface do produto" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card"        content="summary_large_image" />
+    <meta name="twitter:site"        content="@epmaworkspace" />
+    <meta name="twitter:title"       content="EPMA Workspace — Notas, dados e AI em uma tela só" />
+    <meta name="twitter:description" content="O workspace que seu time vai realmente usar. Escreva, organize com AI e estruture dados." />
+    <meta name="twitter:image"       content="https://epma.app/og-image.png" />
+    <meta name="twitter:image:alt"   content="EPMA Workspace — interface do produto" />
+
+    <!-- JSON-LD: SoftwareApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EPMA Workspace",
+      "url": "https://epma.app/",
+      "description": "Workspace com AI para escrita, organização de notas, tabelas relacionais e resumos automáticos.",
+      "applicationCategory": "ProductivityApplication",
+      "operatingSystem": "Web",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Free",
+          "price": "0",
+          "priceCurrency": "BRL",
+          "description": "Para rascunhos e uso individual."
+        },
+        {
+          "@type": "Offer",
+          "name": "Pro",
+          "price": "44",
+          "priceCurrency": "BRL",
+          "description": "Para equipes pequenas e trabalho diário."
+        },
+        {
+          "@type": "Offer",
+          "name": "Enterprise",
+          "price": "99",
+          "priceCurrency": "BRL",
+          "description": "Para times que precisam de controle e AI."
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3",
+        "bestRating": "5"
+      },
+      "inLanguage": ["pt-BR", "en-US", "es"],
+      "publisher": {
+        "@type": "Organization",
+        "name": "EPMA Workspace",
+        "url": "https://epma.app/"
+      }
+    }
+    </script>
+
+    <!-- JSON-LD: FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "O EPMA funciona offline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O editor funciona localmente no navegador. Recursos de AI e sincronização requerem conexão com a internet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso migrar dados de outras ferramentas?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O EPMA suporta importação de Markdown, Notion e arquivos de texto. A exportação limpa também permite sair a qualquer momento."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual modelo de AI é usado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "O EPMA usa a API da Anthropic (Claude) para resumos e reescrita, configurável via chave própria no plano Pro e Enterprise."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "O plano Enterprise tem suporte dedicado?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. O plano Enterprise inclui suporte com SLA, onboarding assistido e contrato de nível de serviço personalizado para o seu time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Posso cancelar a qualquer momento?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sim. Não há fidelidade. Você pode cancelar, exportar seus dados e sair sem penalidade a qualquer momento."
+          }
+        }
+      ]
+    }
+    </script>
+
+    <!-- JSON-LD: Organization -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "EPMA Workspace",
+      "url": "https://epma.app/",
+      "logo": "https://epma.app/og-image.png",
+      "sameAs": [],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer support",
+        "availableLanguage": ["Portuguese", "English", "Spanish"]
+      }
+    }
+    </script>
+
+    <!-- DM Sans from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@1&display=swap" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+
     <style>
+      /* ── TOKENS ── */
       :root {
         color-scheme: light;
-        --bg: #f2efe8;
-        --panel: rgba(255, 255, 255, 0.8);
-        --panel-strong: rgba(255, 255, 255, 0.95);
+        --bg: #e8eaed;
+        --bg2: #eef0f3;
+        --panel: rgba(255, 255, 255, 0.75);
+        --panel-strong: rgba(255, 255, 255, 0.96);
         --text: #111111;
-        --muted: #606060;
-        --line: rgba(17, 17, 17, 0.08);
-        --shadow: 0 30px 90px rgba(17, 17, 17, 0.12);
+        --muted: #5a6070;
+        --line: rgba(17, 17, 17, 0.09);
+        --shadow: 0 24px 72px rgba(17, 17, 17, 0.10);
+        --accent: #5B6AF8;
+        --accent-light: rgba(91, 106, 248, 0.1);
+        --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+        --font-display: 'Instrument Serif', Georgia, serif;
       }
 
-      * {
-        box-sizing: border-box;
-      }
+      /* ── RESET ── */
+      * { box-sizing: border-box; }
 
       html {
         scroll-behavior: smooth;
-        background: var(--bg);
+        background: #e8eaed;
       }
 
       body {
         margin: 0;
         min-height: 100vh;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        font-family: var(--font-body);
         color: var(--text);
         background:
-          radial-gradient(circle at top, rgba(255, 255, 255, 0.92), transparent 38%),
-          linear-gradient(180deg, #f7f6f2 0%, #f2efe8 100%);
+          radial-gradient(ellipse 80% 40% at 85% 0%, rgba(91,106,248,0.06) 0%, transparent 60%),
+          radial-gradient(circle at top left, rgba(255,255,255,0.7), transparent 40%),
+          linear-gradient(180deg, #eef0f3 0%, #e8eaed 100%);
       }
 
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
+      a { color: inherit; text-decoration: none; }
 
-      .shell {
-        position: relative;
-        overflow: hidden;
-      }
+      /* ── LAYOUT ── */
+      .shell { position: relative; overflow: hidden; }
 
       .grid-overlay {
         position: fixed;
@@ -61,6 +222,7 @@
         margin: 0 auto;
       }
 
+      /* ── TOPBAR ── */
       .topbar {
         position: sticky;
         top: 0;
@@ -68,6 +230,7 @@
         backdrop-filter: blur(18px);
         background: rgba(255, 255, 255, 0.78);
         border-bottom: 1px solid var(--line);
+        border-top: 2px solid var(--accent);
       }
 
       .topbar-inner {
@@ -84,21 +247,153 @@
         gap: 0.75rem;
       }
 
-      .brand-badge {
-        border: 1px solid var(--line);
-        background: #111111;
-        color: #fff;
-        border-radius: 999px;
-        padding: 0.45rem 0.8rem;
-        font-size: 0.72rem;
-        font-weight: 700;
-        letter-spacing: 0.22em;
+      .brand-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        text-decoration: none;
       }
 
-      .brand-text {
-        color: var(--muted);
-        font-size: 0.95rem;
+      .brand-logo svg { flex: 0 0 auto; }
+
+      .brand-wordmark {
+        font-size: 1rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        color: var(--text);
+      }
+
+      .brand-wordmark span {
+        color: var(--accent);
+      }
+
+      /* login link */
+      .nav-login {
+        font-size: 0.88rem;
         font-weight: 500;
+        color: var(--muted);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        transition: color 0.15s;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        font-family: var(--font-body);
+        padding: 0;
+      }
+
+      .nav-login:hover { color: var(--text); }
+
+      /* stars */
+      .testimonial-stars {
+        color: #f59e0b;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        margin-bottom: 0.6rem;
+      }
+
+      /* price-card flex column for equal-height CTAs */
+      .price-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .price-card .checklist { flex: 1; }
+
+      /* integrations strip */
+      .integrations-strip {
+        margin-top: 4rem;
+        text-align: center;
+      }
+
+      .integrations-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        color: var(--muted);
+        margin-bottom: 1.25rem;
+      }
+
+      .integrations-logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.5rem 1.8rem;
+      }
+
+      .integration-logo {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--muted);
+        opacity: 0.6;
+        transition: opacity 0.2s;
+      }
+
+      .integration-logo:hover { opacity: 1; }
+
+      .integration-logo svg { flex: 0 0 auto; }
+
+      /* footer expanded */
+      .footer-grid {
+        display: grid;
+        grid-template-columns: 1.4fr repeat(3, 1fr);
+        gap: 2rem;
+        padding: 2.5rem 0 2rem;
+        border-top: 1px solid var(--line);
+      }
+
+      .footer-brand-col .footer-brand-name {
+        font-weight: 700;
+        font-size: 0.95rem;
+        color: var(--text);
+      }
+
+      .footer-brand-col .footer-tagline {
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 0.3rem;
+        line-height: 1.5;
+      }
+
+      .footer-col-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--text);
+        margin: 0 0 0.8rem;
+      }
+
+      .footer-col-links {
+        display: flex;
+        flex-direction: column;
+        gap: 0.55rem;
+      }
+
+      .footer-col-links a {
+        font-size: 0.85rem;
+        color: var(--muted);
+        transition: color 0.15s;
+      }
+
+      .footer-col-links a:hover { color: var(--text); }
+
+      .footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0 1.5rem;
+        border-top: 1px solid var(--line);
+        font-size: 0.78rem;
+        color: var(--muted);
+        gap: 1rem;
+        flex-wrap: wrap;
       }
 
       .nav {
@@ -110,9 +405,7 @@
       }
 
       .nav a:hover,
-      .footer-links a:hover {
-        color: var(--text);
-      }
+      .footer-links a:hover { color: var(--text); }
 
       .actions {
         display: flex;
@@ -120,6 +413,89 @@
         gap: 0.65rem;
       }
 
+      /* ── LANG PICKER ── */
+      .lang-picker {
+        position: relative;
+      }
+
+      .lang-picker-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.45rem 0.7rem 0.45rem 0.55rem;
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        font-family: var(--font-body);
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        transition: box-shadow 0.18s ease, border-color 0.18s ease;
+        white-space: nowrap;
+      }
+
+      .lang-picker-btn:hover {
+        border-color: rgba(91,106,248,0.3);
+        box-shadow: 0 4px 14px rgba(17,17,17,0.08);
+      }
+
+      .lang-picker-btn .lang-flag { font-size: 1rem; line-height: 1; }
+
+      .lang-picker-chevron {
+        width: 12px;
+        height: 12px;
+        color: var(--muted);
+        transition: transform 0.2s ease;
+        flex: 0 0 auto;
+      }
+
+      .lang-picker.is-open .lang-picker-chevron { transform: rotate(180deg); }
+
+      .lang-picker-dropdown {
+        display: none;
+        position: absolute;
+        top: calc(100% + 0.5rem);
+        right: 0;
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: 1rem;
+        box-shadow: 0 12px 40px rgba(17,17,17,0.12);
+        backdrop-filter: blur(16px);
+        overflow: hidden;
+        min-width: 10rem;
+        z-index: 30;
+      }
+
+      .lang-picker.is-open .lang-picker-dropdown { display: block; }
+
+      .lang-option {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        padding: 0.65rem 1rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--text);
+        cursor: pointer;
+        transition: background 0.15s;
+        border: none;
+        background: transparent;
+        width: 100%;
+        text-align: left;
+        font-family: var(--font-body);
+      }
+
+      .lang-option:hover { background: var(--accent-light); }
+
+      .lang-option.is-active {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .lang-option .lang-flag { font-size: 1.1rem; }
+
+      /* ── BUTTONS ── */
       .btn {
         display: inline-flex;
         align-items: center;
@@ -130,15 +506,18 @@
         padding: 0.7rem 1rem;
         font-size: 0.82rem;
         font-weight: 600;
-        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease;
+        font-family: var(--font-body);
+        cursor: pointer;
+        transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
       }
 
       .btn:hover {
         transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(17,17,17,0.12);
       }
 
       .btn-primary {
-        background: #111111;
+        background: var(--accent);
         color: #fff;
         border-color: transparent;
       }
@@ -148,9 +527,8 @@
         color: #232323;
       }
 
-      .hero {
-        padding: 5rem 0 3rem;
-      }
+      /* ── HERO ── */
+      .hero { padding: 5rem 0 3rem; }
 
       .hero-grid {
         display: grid;
@@ -163,8 +541,8 @@
         display: inline-flex;
         align-items: center;
         gap: 0.55rem;
-        border: 1px solid var(--line);
-        background: var(--panel);
+        border: 1px solid rgba(91, 106, 248, 0.25);
+        background: rgba(91, 106, 248, 0.06);
         color: #565656;
         border-radius: 999px;
         padding: 0.45rem 0.8rem;
@@ -175,19 +553,38 @@
       }
 
       h1 {
-        margin: 1.1rem 0 0;
+        margin: 1.6rem 0 0;
         max-width: 12ch;
         font-size: clamp(3rem, 7vw, 5.8rem);
         line-height: 0.96;
         letter-spacing: -0.05em;
+        background: linear-gradient(135deg, #111 60%, #555);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Italic display word in hero */
+      h1 em {
+        font-family: var(--font-display);
+        font-style: italic;
+        font-weight: 400;
+        letter-spacing: -0.03em;
       }
 
       .lead {
         margin: 1.25rem 0 0;
         max-width: 42rem;
         color: var(--muted);
-        font-size: 1.02rem;
-        line-height: 1.75;
+        font-size: 1.1rem;
+        line-height: 1.8;
+      }
+
+      .hero-no-card-note {
+        margin-top: 0.65rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+        opacity: 0.75;
       }
 
       .hero-cta {
@@ -218,16 +615,200 @@
         backdrop-filter: blur(10px);
       }
 
-      .preview {
+      /* ── STATS STRIP ── */
+      .stats-strip {
+        margin-top: 3rem;
+        padding: 1.5rem 0;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0;
+      }
+
+      .stat-item {
+        flex: 1;
+        text-align: center;
+        padding: 0 1.5rem;
         position: relative;
       }
+
+      .stat-item + .stat-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 20%;
+        height: 60%;
+        width: 1px;
+        background: var(--line);
+      }
+
+      .stat-value {
+        font-size: 1.75rem;
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        color: var(--text);
+        line-height: 1;
+      }
+
+      .stat-label {
+        margin-top: 0.3rem;
+        font-size: 0.78rem;
+        color: var(--muted);
+      }
+
+      /* ── HOW IT WORKS ── */
+      .steps-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0;
+        margin-top: 2rem;
+        position: relative;
+      }
+
+      /* connector replaced by animated SVG */
+
+      .step-item {
+        text-align: center;
+        padding: 0 1.5rem;
+        position: relative;
+        z-index: 1;
+      }
+
+      .step-number {
+        width: 2.7rem;
+        height: 2.7rem;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        display: grid;
+        place-items: center;
+        margin: 0 auto 1rem;
+        box-shadow: 0 0 0 4px rgba(91,106,248,0.15);
+      }
+
+      .step-title {
+        font-size: 1rem;
+        font-weight: 650;
+        margin: 0 0 0.4rem;
+      }
+
+      .step-text {
+        font-size: 0.88rem;
+        color: var(--muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* ── PRICING TOGGLE ── */
+      .pricing-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-top: 1.25rem;
+        font-size: 0.88rem;
+        color: var(--muted);
+      }
+
+      .toggle-track {
+        width: 2.6rem;
+        height: 1.4rem;
+        border-radius: 999px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        position: relative;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+
+      .toggle-track.is-annual {
+        background: var(--accent);
+        border-color: var(--accent);
+      }
+
+      .toggle-thumb {
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        background: #fff;
+        transition: transform 0.2s;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.18);
+      }
+
+      .toggle-track.is-annual .toggle-thumb {
+        transform: translateX(1.2rem);
+      }
+
+      .toggle-label-annual {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+
+      .badge-save {
+        background: rgba(91,106,248,0.12);
+        color: var(--accent);
+        border-radius: 999px;
+        padding: 0.15rem 0.5rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+      }
+
+      /* ── AVATAR STACK ── */
+      .social-anchor {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        justify-content: center;
+      }
+
+      .avatar-stack {
+        display: flex;
+      }
+
+      .avatar-stack-item {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 50%;
+        border: 2px solid #e8eaed;
+        display: grid;
+        place-items: center;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #fff;
+        margin-left: -0.5rem;
+        flex: 0 0 auto;
+      }
+
+      .avatar-stack-item:first-child { margin-left: 0; }
+
+      .social-anchor-text {
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .social-anchor-text strong {
+        color: var(--text);
+        font-weight: 600;
+      }
+
+      /* ── PREVIEW CARD ── */
+      .preview { position: relative; }
 
       .preview::before {
         content: "";
         position: absolute;
         inset: -1.5rem;
         border-radius: 2rem;
-        background: rgba(17, 17, 17, 0.05);
+        background: rgba(91, 106, 248, 0.06);
         filter: blur(42px);
       }
 
@@ -240,9 +821,7 @@
         backdrop-filter: blur(16px);
       }
 
-      .preview-card {
-        padding: 1.2rem;
-      }
+      .preview-card { padding: 1.2rem; }
 
       .preview-header {
         display: flex;
@@ -275,6 +854,19 @@
         color: #666;
         font-size: 0.72rem;
         font-weight: 600;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.2rem;
+      }
+
+      .live-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #22c55e;
+        display: inline-block;
+        margin-right: 0.2rem;
+        animation: pulse-dot 1.5s ease-in-out infinite;
       }
 
       .preview-body {
@@ -285,7 +877,7 @@
       }
 
       .mini-panel {
-        background: #f7f6f2;
+        background: #eef0f3;
         border: 1px solid var(--line);
         border-radius: 1.5rem;
         padding: 1rem;
@@ -324,7 +916,7 @@
       }
 
       .summary-panel {
-        background: #f7f5ef;
+        background: #eaecf0;
         border: 1px solid var(--line);
         border-radius: 1.5rem;
         padding: 1rem;
@@ -353,9 +945,8 @@
         color: #5a5a5a;
       }
 
-      .section {
-        margin-top: 4rem;
-      }
+      /* ── SECTIONS ── */
+      .section { margin-top: 5rem; }
 
       .section-title {
         font-size: clamp(1.8rem, 3vw, 2.35rem);
@@ -371,6 +962,7 @@
         line-height: 1.7;
       }
 
+      /* ── FEATURE CARDS ── */
       .feature-grid,
       .pricing-grid {
         display: grid;
@@ -389,16 +981,34 @@
         background: var(--panel);
         box-shadow: 0 10px 28px rgba(17, 17, 17, 0.05);
         backdrop-filter: blur(12px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
-      .feature-card {
-        padding: 1.2rem;
+      .feature-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 20px 48px rgba(17, 17, 17, 0.1);
+      }
+
+      .feature-card { padding: 1.4rem; }
+
+      .feature-icon {
+        font-size: 1.6rem;
+        margin-bottom: 0.85rem;
+        width: 2.8rem;
+        height: 2.8rem;
+        display: grid;
+        place-items: center;
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: 0.9rem;
+        box-shadow: 0 4px 12px rgba(17,17,17,0.06);
       }
 
       .feature-card h3,
       .price-card h3 {
         margin: 0 0 0.45rem;
-        font-size: 1rem;
+        font-size: 1.05rem;
+        font-weight: 650;
       }
 
       .feature-card p,
@@ -406,22 +1016,82 @@
         margin: 0;
         color: var(--muted);
         line-height: 1.65;
+        font-size: 0.95rem;
       }
 
+      /* ── TESTIMONIALS ── */
+      .testimonial-strip {
+        margin-top: 1.75rem;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1rem;
+      }
+
+      .testimonial-card {
+        background: var(--panel-strong);
+        border: 1px solid var(--line);
+        border-radius: 1.4rem;
+        padding: 1.2rem 1.3rem;
+        box-shadow: 0 8px 24px rgba(17,17,17,0.04);
+      }
+
+      .testimonial-quote {
+        font-size: 0.95rem;
+        line-height: 1.65;
+        color: var(--text);
+        margin: 0 0 1rem;
+      }
+
+      .testimonial-author {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+      }
+
+      .testimonial-avatar {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #fff;
+        flex: 0 0 auto;
+      }
+
+      .testimonial-name {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .testimonial-role {
+        font-size: 0.76rem;
+        color: var(--muted);
+        margin-top: 0.1rem;
+      }
+
+      /* ── PRICING ── */
       .pricing-grid {
         grid-template-columns: repeat(3, minmax(0, 1fr));
         margin-top: 1.5rem;
       }
 
-      .price-card {
-        padding: 1.4rem;
-      }
+      .price-card { padding: 1.4rem; }
 
       .price-value {
         margin-top: 0.75rem;
         font-size: 2.35rem;
-        font-weight: 650;
+        font-weight: 700;
         letter-spacing: -0.05em;
+      }
+
+      .price-period {
+        font-size: 0.82rem;
+        font-weight: 400;
+        color: var(--muted);
+        margin-left: 0.2rem;
       }
 
       .checklist {
@@ -442,7 +1112,7 @@
         width: 1rem;
         height: 1rem;
         border-radius: 999px;
-        background: #111;
+        background: var(--accent);
         color: #fff;
         display: inline-grid;
         place-items: center;
@@ -450,6 +1120,135 @@
         flex: 0 0 auto;
       }
 
+      .popular-badge {
+        display: inline-flex;
+        align-items: center;
+        background: #fff;
+        color: #111;
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        margin-bottom: 0.75rem;
+        text-transform: uppercase;
+      }
+
+      /* ── FAQ ── */
+      .faq-list {
+        margin-top: 1.5rem;
+        display: grid;
+        gap: 0;
+        border: 1px solid var(--line);
+        border-radius: 1.4rem;
+        overflow: hidden;
+      }
+
+      .faq-item {
+        border-bottom: 1px solid var(--line);
+      }
+
+      .faq-item:last-child { border-bottom: none; }
+
+      .faq-question {
+        width: 100%;
+        background: var(--panel-strong);
+        border: none;
+        text-align: left;
+        padding: 1.1rem 1.3rem;
+        font-family: var(--font-body);
+        font-size: 0.97rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        transition: background 0.15s ease;
+      }
+
+      .faq-question:hover { background: var(--panel); }
+
+      .faq-chevron {
+        width: 1.1rem;
+        height: 1.1rem;
+        flex: 0 0 auto;
+        color: var(--muted);
+        transition: transform 0.2s ease;
+      }
+
+      .faq-item.is-open .faq-chevron { transform: rotate(180deg); }
+
+      .faq-answer-inner {
+        padding: 0 1.3rem;
+        color: var(--muted);
+        font-size: 0.93rem;
+        line-height: 1.7;
+        background: var(--panel-strong);
+      }
+
+      /* ── CTA BAND ── */
+      .cta-band {
+        margin-top: 5rem;
+        background: #111111;
+        border-radius: 2rem;
+        padding: 4rem 3rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-band::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at top, rgba(91,106,248,0.3) 0%, transparent 65%);
+        pointer-events: none;
+      }
+
+      .cta-band h2 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3rem);
+        letter-spacing: -0.04em;
+        color: #fff;
+        position: relative;
+      }
+
+      .cta-band p {
+        margin: 0.85rem 0 0;
+        color: rgba(255,255,255,0.55);
+        font-size: 1rem;
+        line-height: 1.7;
+        position: relative;
+      }
+
+      .cta-band .cta-actions {
+        display: flex;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-top: 2rem;
+        flex-wrap: wrap;
+        position: relative;
+      }
+
+      .cta-band .btn-primary {
+        background: var(--accent);
+        font-size: 0.9rem;
+        padding: 0.85rem 1.6rem;
+      }
+
+      .cta-band .btn-ghost {
+        background: transparent;
+        color: rgba(255,255,255,0.7);
+        border-color: rgba(255,255,255,0.15);
+        font-size: 0.9rem;
+        padding: 0.85rem 1.6rem;
+      }
+
+      .cta-band .btn-ghost:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
+
+      /* ── FOOTER ── */
       .footer {
         margin-top: 4rem;
         padding: 1.8rem 0 2.2rem;
@@ -464,97 +1263,570 @@
         gap: 1rem;
       }
 
-      .footer-links {
+      .footer-links { display: flex; gap: 1.2rem; }
+
+      /* ── ANIMATED ELEMENTS ── */
+      .ai-typing {
         display: flex;
-        gap: 1.2rem;
+        align-items: center;
+        gap: 0.3rem;
+        margin-top: 0.6rem;
+        color: #9b9b9b;
+        font-size: 0.72rem;
       }
 
+      .ai-typing span:not(.ai-typing-label) {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: #9b9b9b;
+        animation: pulse-dot 1.2s ease-in-out infinite;
+      }
+
+      .ai-typing span:nth-child(2) { animation-delay: 0.2s; }
+      .ai-typing span:nth-child(3) { animation-delay: 0.4s; }
+
+      @keyframes pulse-dot {
+        0%, 80%, 100% { opacity: 0.2; transform: scale(0.8); }
+        40% { opacity: 1; transform: scale(1); }
+      }
+
+      /* ── SCROLL REVEAL ── */
+      .reveal {
+        opacity: 0;
+        transform: translateY(22px);
+        transition: opacity 0.55s ease, transform 0.55s ease;
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .reveal-delay-1 { transition-delay: 0.08s; }
+      .reveal-delay-2 { transition-delay: 0.16s; }
+      .reveal-delay-3 { transition-delay: 0.24s; }
+
+      /* ── NAV ACTIVE ── */
+      .nav a.nav-active {
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      /* ── BACK TO TOP ── */
+      .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        z-index: 50;
+        width: 2.6rem;
+        height: 2.6rem;
+        border-radius: 50%;
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        display: grid;
+        place-items: center;
+        box-shadow: 0 8px 24px rgba(91,106,248,0.35);
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        pointer-events: none;
+      }
+
+      .back-to-top.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .back-to-top:hover {
+        background: #4a59f0;
+        transform: translateY(-2px);
+      }
+
+      /* ── RIPPLE ── */
+      .btn-primary { overflow: hidden; position: relative; }
+
+      .ripple {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.3);
+        transform: scale(0);
+        animation: ripple-anim 0.55s linear;
+        pointer-events: none;
+      }
+
+      @keyframes ripple-anim {
+        to { transform: scale(4); opacity: 0; }
+      }
+
+      /* ── FAQ SMOOTH ── */
+      .faq-answer {
+        display: block !important;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .faq-item.is-open .faq-answer {
+        max-height: 300px;
+        padding-bottom: 1.1rem;
+      }
+
+      /* ── FOCUS VISIBLE ── */
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+
+      .btn:focus-visible { border-radius: 999px; }
+      .lang-btn:focus-visible { border-radius: 999px; }
+      .faq-question:focus-visible { border-radius: 0; outline-offset: -2px; }
+
+      /* ── SKELETON SHIMMER ── */
+      .skeleton {
+        background: linear-gradient(90deg, #e8eaed 25%, #f0f2f5 50%, #e8eaed 75%);
+        background-size: 200% 100%;
+        animation: shimmer 1.6s infinite;
+        border-radius: 0.5rem;
+      }
+
+      @keyframes shimmer {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+      }
+
+      /* ── STEPS CONNECTOR SVG ── */
+      .steps-connector {
+        position: absolute;
+        top: 1.35rem;
+        left: calc(16.66% + 1.35rem);
+        right: calc(16.66% + 1.35rem);
+        height: 2px;
+        overflow: visible;
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .steps-connector line {
+        stroke: var(--accent);
+        stroke-width: 1.5;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        transition: stroke-dashoffset 1s ease 0.3s;
+      }
+
+      .steps-grid.is-visible .steps-connector line {
+        stroke-dashoffset: 0;
+      }
+
+      /* ── PRICING MOBILE PRO FIRST ── */
+      @media (max-width: 900px) {
+        .price-card-pro { order: -1; }
+        .pills { display: grid; grid-template-columns: 1fr 1fr; }
+      }
+
+      /* ── PRICE TRANSITION ── */
+      .price-num {
+        display: inline-block;
+        transition: opacity 0.2s ease, transform 0.2s ease;
+      }
+
+      .price-num.is-switching {
+        opacity: 0;
+        transform: translateY(-6px);
+      }
+
+      /* ── HAMBURGER ── */
+      .hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 4px;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.2s;
+      }
+
+      /* ── RESPONSIVE ── */
       @media (max-width: 900px) {
         .hero-grid,
         .preview-body,
         .feature-grid,
-        .pricing-grid {
+        .pricing-grid,
+        .testimonial-strip,
+        .steps-grid {
           grid-template-columns: 1fr;
         }
 
-        .nav {
-          display: none;
+        .steps-grid::before { display: none; }
+
+        .stats-strip {
+          flex-wrap: wrap;
+          gap: 1.5rem;
         }
 
-        .topbar-inner,
-        .footer-inner {
+        .stat-item + .stat-item::before { display: none; }
+
+        .hamburger { display: flex; }
+
+        .nav {
+          display: none;
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.97);
+          backdrop-filter: blur(18px);
+          border-bottom: 1px solid var(--line);
+          padding: 1rem 1.5rem;
+          flex-direction: column;
+          gap: 1rem;
+          z-index: 19;
+        }
+
+        .nav.is-open { display: flex; }
+
+        .topbar-inner {
           flex-direction: column;
           align-items: flex-start;
         }
+
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .cta-band { padding: 2.5rem 1.5rem; }
       }
 
+      /* ── LOGIN MODAL ── */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 100;
+        background: rgba(17, 17, 17, 0.45);
+        backdrop-filter: blur(6px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1.5rem;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.22s ease;
+      }
+
+      .modal-overlay.is-open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .modal {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 1.75rem;
+        box-shadow: 0 32px 80px rgba(17,17,17,0.18);
+        width: min(420px, 100%);
+        padding: 2.25rem;
+        position: relative;
+        transform: translateY(16px) scale(0.98);
+        transition: transform 0.25s ease, opacity 0.25s ease;
+        opacity: 0;
+      }
+
+      .modal-overlay.is-open .modal {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1.1rem;
+        right: 1.1rem;
+        width: 2rem;
+        height: 2rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: var(--panel);
+        color: var(--muted);
+        display: grid;
+        place-items: center;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+      }
+
+      .modal-close:hover { background: #f0f0f0; color: var(--text); }
+
+      .modal-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-title {
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        margin: 0 0 0.35rem;
+        color: var(--text);
+      }
+
+      .modal-subtitle {
+        font-size: 0.88rem;
+        color: var(--muted);
+        margin: 0 0 1.75rem;
+      }
+
+      .modal-field {
+        display: flex;
+        flex-direction: column;
+        gap: 0.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .modal-label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .modal-input {
+        border: 1px solid var(--line);
+        border-radius: 0.75rem;
+        padding: 0.72rem 0.9rem;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        color: var(--text);
+        background: #fafafa;
+        outline: none;
+        transition: border-color 0.18s, box-shadow 0.18s, background 0.18s;
+        width: 100%;
+      }
+
+      .modal-input:focus {
+        border-color: var(--accent);
+        background: #fff;
+        box-shadow: 0 0 0 3px rgba(91,106,248,0.12);
+      }
+
+      .modal-input::placeholder { color: #b0b5c0; }
+
+      .modal-forgot {
+        display: block;
+        text-align: right;
+        font-size: 0.78rem;
+        color: var(--accent);
+        margin-top: -0.4rem;
+        margin-bottom: 1.4rem;
+        cursor: pointer;
+      }
+
+      .modal-forgot:hover { text-decoration: underline; }
+
+      .modal-btn {
+        width: 100%;
+        padding: 0.82rem;
+        border-radius: 999px;
+        border: none;
+        background: var(--accent);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: background 0.18s, transform 0.18s, box-shadow 0.18s;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .modal-btn:hover {
+        background: #4a59f0;
+        transform: translateY(-1px);
+        box-shadow: 0 6px 20px rgba(91,106,248,0.35);
+      }
+
+      .modal-divider {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 1.25rem 0;
+        color: var(--muted);
+        font-size: 0.78rem;
+      }
+
+      .modal-divider::before,
+      .modal-divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .modal-oauth {
+        width: 100%;
+        padding: 0.72rem;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        background: #fff;
+        color: var(--text);
+        font-family: var(--font-body);
+        font-size: 0.88rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.55rem;
+        transition: background 0.15s, box-shadow 0.15s;
+        margin-bottom: 0.65rem;
+      }
+
+      .modal-oauth:hover {
+        background: #f5f5f5;
+        box-shadow: 0 2px 8px rgba(17,17,17,0.08);
+      }
+
+      .modal-footer-text {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--muted);
+        margin-top: 1.25rem;
+      }
+
+      .modal-footer-text a {
+        color: var(--accent);
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .modal-footer-text a:hover { text-decoration: underline; }
+
       @media (max-width: 640px) {
-        .container {
-          width: min(100vw - 1.5rem, 1180px);
-        }
-
-        .hero {
-          padding-top: 3.25rem;
-        }
-
+        .container { width: min(100vw - 1.5rem, 1180px); }
+        .hero { padding-top: 3.25rem; }
         h1 {
           max-width: 100%;
           font-size: clamp(2.8rem, 13vw, 4rem);
         }
+        .footer-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
-  <body>
+  <body data-page="home">
     <div class="shell">
       <div class="grid-overlay"></div>
 
+      <!-- TOPBAR -->
       <header class="topbar">
         <div class="container topbar-inner">
-          <div class="brand">
-            <div class="brand-badge">EPMA</div>
-            <div class="brand-text">Workspace</div>
-          </div>
+          <a href="/" class="brand-logo">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect width="32" height="32" rx="8" fill="#5B6AF8"/>
+              <rect x="8" y="9" width="10" height="2.2" rx="1.1" fill="white"/>
+              <rect x="8" y="14.9" width="16" height="2.2" rx="1.1" fill="white"/>
+              <rect x="8" y="20.8" width="12" height="2.2" rx="1.1" fill="white"/>
+              <circle cx="23.5" cy="10.1" r="3" fill="white" fill-opacity="0.9"/>
+            </svg>
+            <span class="brand-wordmark">EPMA <span>Workspace</span></span>
+          </a>
 
-          <nav class="nav">
-            <a href="#features">Recursos</a>
-            <a href="#preview">Preview</a>
-            <a href="#pricing">Planos</a>
+          <nav class="nav" aria-label="Navegação principal">
+            <a href="#features" data-i18n="nav.resources" data-nav-section="features">Recursos</a>
+            <a href="#how" data-i18n="nav.how" data-nav-section="how">Como funciona</a>
+            <a href="#pricing" data-i18n="nav.plans" data-nav-section="pricing">Planos</a>
+            <a href="#pricing" style="display:inline-flex;align-items:center;gap:0.35rem;color:var(--accent);font-weight:600;" data-i18n="nav.demo">
+              <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0a8 8 0 100 16A8 8 0 008 0zm-1.5 5.3l4.2 2.7-4.2 2.7V5.3z"/></svg>
+              <span data-i18n="nav.demo">Ver demo</span>
+            </a>
           </nav>
 
           <div class="actions">
-            <a class="btn btn-secondary" href="#preview">Ver preview</a>
-            <a class="btn btn-primary" href="#pricing">Começar grátis</a>
+            <button class="hamburger" id="hamburger-btn" aria-label="Menu" type="button"><span></span><span></span><span></span></button>
+            <div class="lang-picker" id="lang-picker" aria-label="Seletor de idioma">
+              <button class="lang-picker-btn" id="lang-picker-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="lang-flag" id="lang-current-flag">🇧🇷</span>
+                <span id="lang-current-label">Português</span>
+                <svg class="lang-picker-chevron" aria-hidden="true" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5l3.5 3 3.5-3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <div class="lang-picker-dropdown" role="listbox" aria-label="Escolha o idioma">
+                <button class="lang-option is-active" type="button" data-lang="pt-BR" role="option" aria-selected="true">
+                  <span class="lang-flag">🇧🇷</span> Português
+                </button>
+                <button class="lang-option" type="button" data-lang="en-US" role="option" aria-selected="false">
+                  <span class="lang-flag">🇺🇸</span> English
+                </button>
+                <button class="lang-option" type="button" data-lang="es" role="option" aria-selected="false">
+                  <span class="lang-flag">🇪🇸</span> Español
+                </button>
+              </div>
+            </div>
+            <button type="button" class="nav-login" id="open-login" data-i18n="nav.login">Entrar <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6h7M6.5 3.5L9 6l-2.5 2.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <a class="btn btn-primary" href="#pricing" data-i18n="cta.start">Começar grátis</a>
           </div>
         </div>
       </header>
 
       <main>
+        <!-- HERO -->
         <section class="hero">
           <div class="container hero-grid">
             <div>
-              <div class="eyebrow">AI workspace com escrita, organização e resumos</div>
-              <h1>Um workspace limpo para pensar com a AI.</h1>
-              <p class="lead">O EPMA combina notas, páginas aninhadas, tabelas relacionais e assistência generativa em uma interface leve, silenciosa e muito mais próxima do que um produto premium deveria parecer.</p>
-              <div class="hero-cta">
-                <a class="btn btn-primary" href="#pricing">Entrar na demo</a>
-                <a class="btn btn-secondary" href="#preview">Ver preview</a>
+              <div class="eyebrow reveal" data-i18n="hero.eyebrow">
+                <span style="display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--accent);margin-right:0.2rem;"></span>
+                Novo · EPMA Workspace 1.0
               </div>
-              <div class="pills">
-                <span class="pill">SSO-ready</span>
-                <span class="pill">AI assistente</span>
-                <span class="pill">Tabelas relacionais</span>
-                <span class="pill">Busca global</span>
+              <h1 class="reveal reveal-delay-1" data-i18n="hero.title">Notas, dados e AI. <em>Em uma tela só.</em></h1>
+              <p class="lead reveal reveal-delay-2" data-i18n="hero.lead">O workspace que seu time vai realmente usar. Escreva, organize com AI e estruture dados — sem trocar de ferramenta.</p>
+              <div class="hero-cta reveal reveal-delay-3">
+                <a class="btn btn-primary" href="#pricing" data-i18n="hero.primary">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1.5C3.96 1.5 1.5 3.96 1.5 7S3.96 12.5 7 12.5 12.5 10.04 12.5 7 10.04 1.5 7 1.5zm-1 7.3V5.2l3.5 1.8-3.5 1.8z" fill="currentColor"/></svg>
+                  <span data-i18n="hero.primary">Começar agora</span>
+                </a>
+                <a class="btn btn-secondary" href="#how" data-i18n="hero.secondary">Como funciona</a>
+              </div>
+              <p class="hero-no-card-note reveal reveal-delay-3" data-i18n="hero.nocard">Sem cartão de crédito · Cancele quando quiser</p>
+              <div class="pills reveal reveal-delay-3">
+                <span class="pill">
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1l1.12 2.27L10 3.76l-2 1.95.47 2.75L6 7.27 3.53 8.46 4 5.71 2 3.76l2.88-.49L6 1z" fill="var(--accent)"/></svg>
+                  <span data-i18n="pill.ai">AI integrado</span>
+                </span>
+                <span class="pill">
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none"><rect x="1" y="2" width="10" height="8" rx="1.5" stroke="var(--accent)" stroke-width="1.2"/><path d="M4 5.5h4M4 7.5h2.5" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  <span data-i18n="pill.tables">Tabelas relacionais</span>
+                </span>
+                <span class="pill">
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="5" cy="5" r="3.5" stroke="var(--accent)" stroke-width="1.2"/><path d="M7.5 7.5L10.5 10.5" stroke="var(--accent)" stroke-width="1.2" stroke-linecap="round"/></svg>
+                  <span data-i18n="pill.search">Busca global</span>
+                </span>
+                <span class="pill">
+                  <svg aria-hidden="true" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M6 1.5L9.5 3.5v5L6 10.5 2.5 8.5v-5L6 1.5z" stroke="var(--accent)" stroke-width="1.2" stroke-linejoin="round"/></svg>
+                  <span data-i18n="pill.sso">Segurança SSO</span>
+                </span>
               </div>
             </div>
 
-            <div id="preview" class="preview">
+            <div id="preview" class="preview reveal reveal-delay-2" id="hero-preview">
               <div class="card preview-card">
                 <div class="preview-header">
                   <div>
-                    <div class="small-label">Preview digital</div>
-                    <div class="preview-title">EPMA Workspace</div>
+                    <div class="small-label" data-i18n="preview.small">Preview digital</div>
+                    <div class="preview-title" data-i18n="preview.title">EPMA Workspace</div>
                   </div>
-                  <div class="status-chip">Live</div>
+                  <div class="status-chip"><span class="live-dot"></span> <span data-i18n="preview.status">Live</span></div>
                 </div>
 
                 <div class="preview-body">
@@ -562,29 +1834,35 @@
                     <div class="mini-row">
                       <div class="emoji-box">📝</div>
                       <div>
-                        <div style="font-size: 0.95rem; font-weight: 650;">Estratégia do trimestre</div>
-                        <div style="color: var(--muted); font-size: 0.8rem; margin-top: 0.15rem;">Notas, blocos e AI na mesma superfície</div>
+                        <div style="font-size: 0.95rem; font-weight: 650;" data-i18n="preview.cardTitle">Estratégia do trimestre</div>
+                        <div style="color: var(--muted); font-size: 0.8rem; margin-top: 0.15rem;" data-i18n="preview.cardSubtitle">Notas, blocos e AI na mesma superfície</div>
                       </div>
                     </div>
                     <div class="mini-list">
-                      <div>• Reescreva e resuma blocos com um clique</div>
-                      <div>• Alterne entre documento e tabela sem ruído</div>
-                      <div>• Organize subpáginas e bases relacionais</div>
+                      <div data-i18n="preview.list1">• Reescreva e resuma blocos com um clique</div>
+                      <div data-i18n="preview.list2">• Alterne entre documento e tabela sem ruído</div>
+                      <div data-i18n="preview.list3">• Organize subpáginas e bases relacionais</div>
                     </div>
                   </div>
 
                   <div class="summary-panel">
                     <div class="small-label" style="margin-bottom: 0.5rem; display: inline-flex; align-items: center; gap: 0.45rem;">
-                      <span style="font-size: 0.9rem;">🤖</span> AI summary
+                      <span style="font-size: 0.9rem;">🤖</span>
+                      <span data-i18n="summary.label">AI summary</span>
                     </div>
                     <div class="summary-box">
-                      <p style="margin: 0; color: #2f2f2f; line-height: 1.7;">Transforme notas dispersas em um plano claro, com prioridades, datas e responsabilidades.</p>
-                      <div class="summary-tags">
-                        <span class="tag">Resumo</span>
-                        <span class="tag">Checklist</span>
-                        <span class="tag">Tarefas</span>
+                      <div class="skeleton" style="height:0.75rem;width:90%;margin-bottom:0.5rem;"></div>
+                      <div class="skeleton" style="height:0.75rem;width:75%;margin-bottom:0.5rem;"></div>
+                      <div class="skeleton" style="height:0.75rem;width:82%;margin-bottom:0.8rem;"></div>
+                      <p style="margin: 0; color: #2f2f2f; line-height: 1.7; display:none;" data-i18n="summary.text" id="summary-real-text">Transforme notas dispersas em um plano claro, com prioridades, datas e responsabilidades.</p>
+                      <div class="summary-tags" style="display:none;" id="summary-real-tags">
+                        <span class="tag" data-i18n="summary.tag1">Resumo</span>
+                        <span class="tag" data-i18n="summary.tag2">Checklist</span>
+                        <span class="tag" data-i18n="summary.tag3">Tarefas</span>
                       </div>
+                      <div class="skeleton" style="height:1.6rem;width:5rem;border-radius:999px;margin-top:0.8rem;" id="skeleton-tag"></div>
                     </div>
+                    <div class="ai-typing"><span></span><span></span><span></span> <span class="ai-typing-label" data-i18n="summary.typing">AI gerando…</span></div>
                   </div>
                 </div>
               </div>
@@ -592,77 +1870,605 @@
           </div>
         </section>
 
+        <!-- STATS -->
+        <div class="container">
+          <div class="stats-strip reveal">
+            <div class="stat-item">
+              <div class="stat-value">3</div>
+              <div class="stat-label" data-i18n="stat1.label">Idiomas suportados</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">1-clique</div>
+              <div class="stat-label" data-i18n="stat2.label">Exportação limpa</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">AI</div>
+              <div class="stat-label" data-i18n="stat3.label">Integrado nativamente</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">SSO</div>
+              <div class="stat-label" data-i18n="stat4.label">Pronto para times</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- HOW IT WORKS -->
+        <section id="how" class="section container">
+          <h2 class="section-title reveal" data-i18n="how.title">Como funciona</h2>
+          <p class="section-subtitle reveal reveal-delay-1" data-i18n="how.subtitle">Três passos do rascunho ao resultado organizado.</p>
+
+          <div class="steps-grid" id="steps-grid">
+            <svg class="steps-connector" viewBox="0 0 200 2" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="1" x2="200" y2="1"/></svg>
+            <div class="step-item reveal reveal-delay-1">
+              <div class="step-number">1</div>
+              <h3 class="step-title" data-i18n="step1.title">Escreva</h3>
+              <p class="step-text" data-i18n="step1.text">Abra uma página em branco e escreva livremente. Sem formatação forçada, sem ruído de interface.</p>
+            </div>
+            <div class="step-item reveal reveal-delay-2">
+              <div class="step-number">2</div>
+              <h3 class="step-title" data-i18n="step2.title">AI resume</h3>
+              <p class="step-text" data-i18n="step2.text">Selecione um bloco e peça um resumo, reescrita ou checklist. A AI age dentro do seu documento.</p>
+            </div>
+            <div class="step-item reveal reveal-delay-3">
+              <div class="step-number">3</div>
+              <h3 class="step-title" data-i18n="step3.title">Exporte</h3>
+              <p class="step-text" data-i18n="step3.text">Exporte em Markdown, PDF ou compartilhe com o time. Tudo limpo, sem lixo de formatação.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- FEATURES -->
         <section id="features" class="section container">
-          <h2 class="section-title">Três pilares de uma interface mais madura</h2>
-          <p class="section-subtitle">O caminho mais seguro para um visual próximo do Stitch é reduzir ruído, destacar o conteúdo e usar componentes que pareçam gerados por sistema, não por improviso.</p>
+          <h2 class="section-title reveal" data-i18n="features.title">Tudo que seu time precisa, em uma interface</h2>
+          <p class="section-subtitle reveal reveal-delay-1" data-i18n="features.subtitle">Escreva sem distrações, deixe a AI organizar o que importa, e estruture seus dados de forma que escale com o seu time.</p>
 
           <div class="feature-grid">
-            <div class="feature-card">
-              <h3>Escreva com foco</h3>
-              <p>Tipografia limpa, editor leve e blocos sem poluição visual.</p>
+            <div class="feature-card reveal reveal-delay-1">
+              <div class="feature-icon">✏️</div>
+              <h3 data-i18n="feature1.title">Escreva com foco</h3>
+              <p data-i18n="feature1.text">Editor leve, tipografia calibrada e blocos que desaparecem quando você não precisa deles.</p>
             </div>
-            <div class="feature-card">
-              <h3>Organize com AI</h3>
-              <p>Resumos, expansão e reescrita dentro do fluxo de trabalho.</p>
+            <div class="feature-card reveal reveal-delay-2" style="background: rgba(255,255,255,0.95); border-color: rgba(17,17,17,0.1);">
+              <div class="feature-icon">🤖</div>
+              <h3 data-i18n="feature2.title">Organize com AI</h3>
+              <p data-i18n="feature2.text">Resumos, expansão e reescrita embutidos no seu fluxo — sem abrir outra aba.</p>
             </div>
-            <div class="feature-card">
-              <h3>Estruture dados</h3>
-              <p>Páginas, tabelas e propriedades conectadas sem complicação.</p>
+            <div class="feature-card reveal reveal-delay-3">
+              <div class="feature-icon">🗂️</div>
+              <h3 data-i18n="feature3.title">Estruture dados</h3>
+              <p data-i18n="feature3.text">Páginas, tabelas e propriedades relacionadas que crescem conforme o seu projeto.</p>
             </div>
+          </div>
+
+          <!-- TESTIMONIALS -->
+          <div class="testimonial-strip">
+            <div class="testimonial-card reveal reveal-delay-1">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote" data-i18n="testimonial1.quote">"Finalmente um workspace que não me faz perder tempo configurando o workspace."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: #5B6AF8;">LM</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial1.name">Lucas M.</div>
+                  <div class="testimonial-role" data-i18n="testimonial1.role">Product Manager · SaaS</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-2">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote" data-i18n="testimonial2.quote">"A integração de AI dentro do documento é o que eu precisava. Simples e direto."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: #22c55e;">AC</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial2.name">Ana C.</div>
+                  <div class="testimonial-role" data-i18n="testimonial2.role">Tech Lead · Startup</div>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card reveal reveal-delay-3">
+              <div class="testimonial-stars">★★★★★</div>
+              <p class="testimonial-quote" data-i18n="testimonial3.quote">"O EPMA substituiu três ferramentas que usávamos antes. Interface muito mais limpa."</p>
+              <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: #f59e0b;">RF</div>
+                <div>
+                  <div class="testimonial-name" data-i18n="testimonial3.name">Rafael F.</div>
+                  <div class="testimonial-role" data-i18n="testimonial3.role">CTO · Agência</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- AVATAR STACK -->
+          <div class="social-anchor reveal">
+            <div class="avatar-stack">
+              <div class="avatar-stack-item" style="background:#5B6AF8;">LM</div>
+              <div class="avatar-stack-item" style="background:#22c55e;">AC</div>
+              <div class="avatar-stack-item" style="background:#f59e0b;">RF</div>
+              <div class="avatar-stack-item" style="background:#ec4899;">MO</div>
+              <div class="avatar-stack-item" style="background:#8b5cf6;">TS</div>
+            </div>
+            <p class="social-anchor-text" data-i18n="social.text"><strong>+500 times</strong> já usam o EPMA Workspace</p>
           </div>
         </section>
 
+        <!-- INTEGRATIONS -->
+        <div class="container">
+          <div class="integrations-strip reveal">
+            <div class="integrations-label" data-i18n="integrations.label">Compatível com as ferramentas que você já usa</div>
+            <div class="integrations-logos">
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+                Notion
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+                Slack
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M6.5 10h-2v7h2v-7zm6 0h-2v7h2v-7zm8.5 9H2v2h19v-2zm-2.5-9h-2v7h2v-7zM11.5 1L2 6v2h19V6l-9.5-5z"/></svg>
+                Google Drive
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.89 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/></svg>
+                Markdown
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.27 8.27 0 004.84 1.55V6.79a4.85 4.85 0 01-1.07-.1z"/></svg>
+                Zapier
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+                GitHub
+              </span>
+              <span class="integration-logo">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M13 2.05v2.02c3.95.49 7 3.85 7 7.93 0 3.21-1.81 6-4.72 7.28L13 17v5l7-3.5C22.91 16.07 24 13.14 24 12c0-5.18-3.95-9.45-11-9.95zM11 2.05C3.95 2.55 0 6.82 0 12c0 3.14 1.09 6.07 3 8.5L11 17V2.05z"/></svg>
+                API REST
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PRICING -->
         <section id="pricing" class="section container">
-          <h2 class="section-title">Planos simples, leitura rápida</h2>
-          <p class="section-subtitle">Cards claros, pouco contraste agressivo e uma hierarquia que deixa o produto parecer mais premium.</p>
+          <h2 class="section-title reveal" data-i18n="pricing.title">Planos simples, leitura rápida</h2>
+          <p class="section-subtitle reveal reveal-delay-1" data-i18n="pricing.subtitle">Comece grátis e evolua conforme seu time cresce. Sem surpresas na fatura.</p>
+
+          <div class="pricing-toggle reveal reveal-delay-1">
+            <span data-i18n="toggle.monthly">Mensal</span>
+            <div class="toggle-track" id="billing-toggle" role="switch" aria-checked="false" tabindex="0">
+              <div class="toggle-thumb"></div>
+            </div>
+            <span class="toggle-label-annual">
+              <span data-i18n="toggle.annual">Anual</span>
+              <span class="badge-save" data-i18n="toggle.save">−20%</span>
+            </span>
+          </div>
 
           <div class="pricing-grid">
-            <div class="price-card">
-              <div class="small-label">Free</div>
-              <div class="price-value">R$0</div>
-              <p>Para rascunhos e uso individual.</p>
+            <div class="price-card reveal reveal-delay-1">
+              <div class="small-label" data-i18n="price.free.label">Free</div>
+              <div class="price-value" data-monthly="R$0" data-annual="R$0"><span class="price-num" data-i18n="price.free.price">R$0</span><span class="price-period" data-i18n="price.period">/mês</span></div>
+              <p data-i18n="price.free.desc">Para rascunhos e uso individual.</p>
               <div class="checklist">
-                <div><span class="check">✓</span> Documentos aninhados</div>
-                <div><span class="check">✓</span> Assistência AI</div>
-                <div><span class="check">✓</span> Exportação limpa</div>
+                <div><span class="check">✓</span> <span data-i18n="price.item1">Documentos aninhados</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item2">Assistência AI</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item3">Exportação limpa</span></div>
+                <div style="opacity:0.35;"><span class="check" style="background:#ccc;">✕</span> <span data-i18n="price.item4">SSO & integrações</span></div>
               </div>
+              <a class="btn btn-secondary price-btn" href="#" data-i18n="price.free.cta" style="margin-top: 1.25rem; width: 100%; justify-content: center;">Começar grátis</a>
             </div>
 
-            <div class="price-card" style="border-color: rgba(17,17,17,0.12); background: rgba(255,255,255,0.92);">
-              <div class="small-label">Pro</div>
-              <div class="price-value">U$8</div>
-              <p>Para equipes pequenas e trabalho diário.</p>
+            <div class="price-card price-card-pro reveal reveal-delay-2" style="background: #111111; color: #fff; border-color: transparent;">
+              <div class="popular-badge" data-i18n="price.pro.badge">Mais popular</div>
+              <div class="small-label" style="color: rgba(255,255,255,0.6);" data-i18n="price.pro.label">Pro</div>
+              <div class="price-value" style="color: #fff;" data-monthly="R$44" data-annual="R$35"><span class="price-num" data-i18n="price.pro.price">R$44</span><span class="price-period" style="color:rgba(255,255,255,0.4);" data-i18n="price.period">/mês</span></div>
+              <p style="color: rgba(255,255,255,0.7);" data-i18n="price.pro.desc">Para equipes pequenas e trabalho diário.</p>
               <div class="checklist">
-                <div><span class="check">✓</span> Documentos aninhados</div>
-                <div><span class="check">✓</span> Assistência AI</div>
-                <div><span class="check">✓</span> Exportação limpa</div>
+                <div><span class="check" style="background: #fff; color: #111;">✓</span> <span style="color:rgba(255,255,255,0.85);" data-i18n="price.item1">Documentos aninhados</span></div>
+                <div><span class="check" style="background: #fff; color: #111;">✓</span> <span style="color:rgba(255,255,255,0.85);" data-i18n="price.item2">Assistência AI</span></div>
+                <div><span class="check" style="background: #fff; color: #111;">✓</span> <span style="color:rgba(255,255,255,0.85);" data-i18n="price.item3">Exportação limpa</span></div>
+                <div><span class="check" style="background: #fff; color: #111;">✓</span> <span style="color:rgba(255,255,255,0.85);" data-i18n="price.item4">SSO & integrações</span></div>
+                <div><span class="check" style="background: #fff; color: #111;">✓</span> <span style="color:rgba(255,255,255,0.85);" data-i18n="price.item5">Histórico ilimitado</span></div>
               </div>
+              <a class="btn price-btn" href="#" data-i18n="price.pro.cta" style="margin-top: 1.25rem; width: 100%; justify-content: center; background: #fff; color: #111; border-color: transparent;">Assinar Pro</a>
             </div>
 
-            <div class="price-card">
-              <div class="small-label">Enterprise</div>
-              <div class="price-value">U$19</div>
-              <p>Para times que precisam de controle e AI.</p>
+            <div class="price-card reveal reveal-delay-3">
+              <div class="small-label" data-i18n="price.enterprise.label">Enterprise</div>
+              <div class="price-value" data-monthly="R$99" data-annual="R$79"><span class="price-num" data-i18n="price.enterprise.price">R$99</span><span class="price-period" data-i18n="price.period">/mês</span></div>
+              <p data-i18n="price.enterprise.desc">Para times que precisam de controle e AI.</p>
               <div class="checklist">
-                <div><span class="check">✓</span> Documentos aninhados</div>
-                <div><span class="check">✓</span> Assistência AI</div>
-                <div><span class="check">✓</span> Exportação limpa</div>
+                <div><span class="check">✓</span> <span data-i18n="price.item1">Documentos aninhados</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item2">Assistência AI</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item3">Exportação limpa</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item4">SSO & integrações</span></div>
+                <div><span class="check">✓</span> <span data-i18n="price.item6">Auditoria & SLA</span></div>
               </div>
+              <a class="btn btn-primary price-btn" href="#" data-i18n="price.enterprise.cta" style="margin-top: 1.25rem; width: 100%; justify-content: center;">Falar com vendas</a>
             </div>
           </div>
         </section>
+
+        <!-- FAQ -->
+        <section class="section container">
+          <h2 class="section-title reveal" data-i18n="faq.title">Perguntas frequentes</h2>
+          <p class="section-subtitle reveal reveal-delay-1" data-i18n="faq.subtitle">Respostas rápidas para as dúvidas mais comuns.</p>
+
+          <div class="faq-list reveal reveal-delay-1">
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq.q1">O EPMA funciona offline?</span>
+                <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a1">O editor funciona localmente no navegador. Recursos de AI e sincronização requerem conexão com a internet.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq.q2">Posso migrar dados de outras ferramentas?</span>
+                <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a2">Sim. O EPMA suporta importação de Markdown, Notion e arquivos de texto. A exportação limpa também permite sair a qualquer momento.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq.q3">Qual modelo de AI é usado?</span>
+                <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a3">O EPMA usa a API da Anthropic (Claude) para resumos e reescrita, configurável via chave própria no plano Pro e Enterprise.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq.q4">O plano Enterprise tem suporte dedicado?</span>
+                <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a4">Sim. O plano Enterprise inclui suporte com SLA, onboarding assistido e contrato de nível de serviço personalizado para o seu time.</div></div>
+            </div>
+            <div class="faq-item">
+              <button class="faq-question" type="button">
+                <span data-i18n="faq.q5">Posso cancelar a qualquer momento?</span>
+                <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6l4 4 4-4"/></svg>
+              </button>
+              <div class="faq-answer"><div class="faq-answer-inner" data-i18n="faq.a5">Sim. Não há fidelidade. Você pode cancelar, exportar seus dados e sair sem penalidade a qualquer momento.</div></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA BAND -->
+        <div class="container">
+          <div class="cta-band reveal">
+            <h2 data-i18n="cta.band.title">Comece a pensar com mais clareza.</h2>
+            <p data-i18n="cta.band.subtitle">Junte-se a times que escolheram um workspace mais limpo e inteligente.</p>
+            <div class="cta-actions">
+              <a class="btn btn-primary" href="#pricing" data-i18n="cta.band.primary">Entrar na demo</a>
+              <a class="btn btn-ghost" href="#features" data-i18n="cta.band.secondary">Ver funcionalidades</a>
+            </div>
+          </div>
+        </div>
       </main>
 
-      <footer class="footer">
-        <div class="container footer-inner">
-          <div style="font-weight: 600; color: #313131;">EPMA Workspace</div>
-          <div class="footer-links">
-            <a href="privacy.html">Privacidade</a>
-            <a href="security.html">Segurança</a>
-            <a href="status.html">Status</a>
+      <!-- FOOTER -->
+      <footer style="margin-top: 4rem;">
+        <div class="container">
+          <div class="footer-grid">
+            <div class="footer-brand-col">
+              <a href="/" class="brand-logo" style="margin-bottom: 0.75rem; display: inline-flex;">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="none"><rect width="32" height="32" rx="8" fill="#5B6AF8"/><rect x="8" y="9" width="10" height="2.2" rx="1.1" fill="white"/><rect x="8" y="14.9" width="16" height="2.2" rx="1.1" fill="white"/><rect x="8" y="20.8" width="12" height="2.2" rx="1.1" fill="white"/><circle cx="23.5" cy="10.1" r="3" fill="white" fill-opacity="0.9"/></svg>
+                <span class="brand-wordmark" style="margin-left: 0.5rem;">EPMA <span>Workspace</span></span>
+              </a>
+              <div class="footer-tagline" data-i18n="footer.tagline">Notas, dados e AI.<br>Em uma tela só.</div>
+            </div>
+            <div>
+              <div class="footer-col-title" data-i18n="footer.col.product">Produto</div>
+              <div class="footer-col-links">
+                <a href="#features" data-i18n="footer.link.features">Funcionalidades</a>
+                <a href="#pricing" data-i18n="footer.link.pricing">Preços</a>
+                <a href="#" data-i18n="footer.link.changelog">Changelog</a>
+                <a href="#" data-i18n="footer.link.roadmap">Roadmap</a>
+              </div>
+            </div>
+            <div>
+              <div class="footer-col-title" data-i18n="footer.col.developers">Desenvolvedores</div>
+              <div class="footer-col-links">
+                <a href="#" data-i18n="footer.link.api">API</a>
+                <a href="#" data-i18n="footer.link.docs">Documentação</a>
+                <a href="#" data-i18n="footer.link.blog">Blog</a>
+                <a href="status.html" data-i18n="footer.status">Status</a>
+              </div>
+            </div>
+            <div>
+              <div class="footer-col-title" data-i18n="footer.col.legal">Legal</div>
+              <div class="footer-col-links">
+                <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
+                <a href="security.html" data-i18n="footer.security">Segurança</a>
+                <a href="#" data-i18n="footer.link.terms">Termos de uso</a>
+                <a href="#" data-i18n="footer.link.cookies">Cookies</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-bottom">
+            <span>© 2026 EPMA Workspace. <span data-i18n="footer.rights">Todos os direitos reservados.</span></span>
+            <span data-i18n="footer.made">Feito com foco e AI.</span>
           </div>
         </div>
       </footer>
+
+      <!-- LOGIN MODAL -->
+      <div class="modal-overlay" id="login-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+          <button class="modal-close" id="modal-close" aria-label="Fechar">
+            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M1 1l10 10M11 1L1 11" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+
+          <div class="modal-logo">
+            <svg width="26" height="26" viewBox="0 0 32 32" fill="none" aria-hidden="true"><rect width="32" height="32" rx="8" fill="#5B6AF8"/><rect x="8" y="9" width="10" height="2.2" rx="1.1" fill="white"/><rect x="8" y="14.9" width="16" height="2.2" rx="1.1" fill="white"/><rect x="8" y="20.8" width="12" height="2.2" rx="1.1" fill="white"/><circle cx="23.5" cy="10.1" r="3" fill="white" fill-opacity="0.9"/></svg>
+            <span style="font-weight:700;font-size:0.95rem;letter-spacing:-0.02em;">EPMA <span style="color:var(--accent);">Workspace</span></span>
+          </div>
+
+          <h2 class="modal-title" id="modal-title" data-i18n="modal.title">Bem-vindo de volta</h2>
+          <p class="modal-subtitle" data-i18n="modal.subtitle">Entre com sua conta para continuar.</p>
+
+          <button class="modal-oauth" type="button">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+            <span data-i18n="modal.google">Entrar com Google</span>
+          </button>
+
+          <button class="modal-oauth" type="button">
+            <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            <span data-i18n="modal.github">Entrar com GitHub</span>
+          </button>
+
+          <div class="modal-divider" data-i18n="modal.or">ou</div>
+
+          <form id="login-form" novalidate>
+            <div class="modal-field">
+              <label class="modal-label" for="login-email" data-i18n="modal.email">E-mail</label>
+              <input class="modal-input" id="login-email" type="email" autocomplete="email" placeholder="voce@empresa.com" required />
+            </div>
+            <div class="modal-field">
+              <label class="modal-label" for="login-password" data-i18n="modal.password">Senha</label>
+              <input class="modal-input" id="login-password" type="password" autocomplete="current-password" placeholder="••••••••" required />
+            </div>
+            <a class="modal-forgot" tabindex="0" data-i18n="modal.forgot">Esqueceu a senha?</a>
+            <button class="modal-btn" type="submit" data-i18n="modal.submit">Entrar na conta</button>
+          </form>
+
+          <p class="modal-footer-text">
+            <span data-i18n="modal.signup.text">Não tem conta?</span>
+            <a tabindex="0" data-i18n="modal.signup.link"> Criar conta grátis</a>
+          </p>
+        </div>
+      </div>
+
+      <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 12V4M4 7l4-4 4 4" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+
+      <script src="i18n.js"></script>
+      <script>
+        // Hamburger menu
+        document.getElementById('hamburger-btn')?.addEventListener('click', () => {
+          document.querySelector('.nav').classList.toggle('is-open');
+        });
+
+        // Login modal
+        const loginModal   = document.getElementById('login-modal');
+        const openLoginBtn = document.getElementById('open-login');
+        const closeModalBtn = document.getElementById('modal-close');
+
+        function openModal() {
+          loginModal.classList.add('is-open');
+          document.body.style.overflow = 'hidden';
+          setTimeout(() => document.getElementById('login-email')?.focus(), 50);
+        }
+
+        function closeModal() {
+          loginModal.classList.remove('is-open');
+          document.body.style.overflow = '';
+        }
+
+        openLoginBtn?.addEventListener('click', openModal);
+        closeModalBtn?.addEventListener('click', closeModal);
+
+        loginModal?.addEventListener('click', e => {
+          if (e.target === loginModal) closeModal();
+        });
+
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape' && loginModal?.classList.contains('is-open')) closeModal();
+        });
+
+        document.getElementById('login-form')?.addEventListener('submit', e => {
+          e.preventDefault();
+          const btn = e.target.querySelector('.modal-btn');
+          btn.textContent = '...';
+          btn.disabled = true;
+          setTimeout(() => {
+            btn.textContent = btn.getAttribute('data-i18n') ? btn.getAttribute('data-i18n') : 'Entrar na conta';
+            btn.disabled = false;
+          }, 1500);
+        });
+
+        // FAQ accordion — smooth max-height
+        document.querySelectorAll('.faq-question').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const item = btn.closest('.faq-item');
+            const isOpen = item.classList.contains('is-open');
+            document.querySelectorAll('.faq-item.is-open').forEach(el => el.classList.remove('is-open'));
+            if (!isOpen) item.classList.add('is-open');
+          });
+        });
+
+        // Scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+
+        // Also observe steps-grid for connector animation
+        const stepsGrid = document.getElementById('steps-grid');
+        if (stepsGrid) observer.observe(stepsGrid);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Smooth scroll with topbar offset
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
+          link.addEventListener('click', e => {
+            const id = link.getAttribute('href').slice(1);
+            const target = document.getElementById(id);
+            if (!target) return;
+            e.preventDefault();
+            const offset = document.querySelector('.topbar')?.offsetHeight ?? 72;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset - 16;
+            window.scrollTo({ top, behavior: 'smooth' });
+            document.querySelector('.nav')?.classList.remove('is-open');
+          });
+        });
+
+        // Nav active section highlight
+        const navLinks = document.querySelectorAll('.nav a[data-nav-section]');
+        const sections = ['features', 'how', 'pricing'].map(id => document.getElementById(id)).filter(Boolean);
+        const navObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              navLinks.forEach(a => a.classList.remove('nav-active'));
+              const active = document.querySelector(`.nav a[data-nav-section="${entry.target.id}"]`);
+              active?.classList.add('nav-active');
+            }
+          });
+        }, { rootMargin: '-40% 0px -55% 0px' });
+        sections.forEach(s => navObserver.observe(s));
+
+        // Back to top
+        const backBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+          backBtn?.classList.toggle('is-visible', window.scrollY > 400);
+        }, { passive: true });
+        backBtn?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Ripple effect on primary buttons
+        document.querySelectorAll('.btn-primary').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            const r = document.createElement('span');
+            const d = Math.max(this.offsetWidth, this.offsetHeight);
+            const rect = this.getBoundingClientRect();
+            r.className = 'ripple';
+            r.style.cssText = `width:${d}px;height:${d}px;left:${e.clientX - rect.left - d/2}px;top:${e.clientY - rect.top - d/2}px`;
+            this.appendChild(r);
+            r.addEventListener('animationend', () => r.remove());
+          });
+        });
+
+        // Pricing toggle — animated price swap
+        const toggle = document.getElementById('billing-toggle');
+        let isAnnual = false;
+
+        function updatePrices() {
+          document.querySelectorAll('.price-value[data-monthly]').forEach(el => {
+            const numEl = el.querySelector('.price-num');
+            if (!numEl) return;
+            const val = isAnnual ? el.dataset.annual : el.dataset.monthly;
+            if (!val) return;
+            numEl.classList.add('is-switching');
+            setTimeout(() => {
+              numEl.textContent = val;
+              numEl.classList.remove('is-switching');
+            }, 200);
+          });
+        }
+
+        toggle?.addEventListener('click', () => {
+          isAnnual = !isAnnual;
+          toggle.classList.toggle('is-annual', isAnnual);
+          toggle.setAttribute('aria-checked', String(isAnnual));
+          updatePrices();
+        });
+
+        toggle?.addEventListener('keydown', e => {
+          if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); toggle.click(); }
+        });
+
+        // Parallax on hero preview card
+        const heroPreview = document.getElementById('hero-preview');
+        window.addEventListener('scroll', () => {
+          if (!heroPreview) return;
+          const y = window.scrollY;
+          if (y < 400) heroPreview.style.transform = `translateY(${y * -0.06}px)`;
+        }, { passive: true });
+
+        // Skeleton → real content reveal after delay
+        setTimeout(() => {
+          document.querySelectorAll('.skeleton').forEach(s => s.style.display = 'none');
+          const realText = document.getElementById('summary-real-text');
+          const realTags = document.getElementById('summary-real-tags');
+          const skelTag  = document.getElementById('skeleton-tag');
+          if (realText) realText.style.display = '';
+          if (realTags) realTags.style.display = '';
+          if (skelTag)  skelTag.style.display  = 'none';
+        }, 1800);
+
+        // Lang picker dropdown
+        const langMeta = {
+          'pt-BR': { flag: '🇧🇷', label: 'Português' },
+          'en-US': { flag: '🇺🇸', label: 'English'   },
+          'es':    { flag: '🇪🇸', label: 'Español'   },
+        };
+
+        const picker      = document.getElementById('lang-picker');
+        const pickerBtn   = document.getElementById('lang-picker-btn');
+        const currentFlag = document.getElementById('lang-current-flag');
+        const currentLbl  = document.getElementById('lang-current-label');
+
+        function syncPicker(lang) {
+          const meta = langMeta[lang] || langMeta['pt-BR'];
+          currentFlag.textContent = meta.flag;
+          currentLbl.textContent  = meta.label;
+          document.querySelectorAll('.lang-option').forEach(opt => {
+            const active = opt.dataset.lang === lang;
+            opt.classList.toggle('is-active', active);
+            opt.setAttribute('aria-selected', String(active));
+          });
+          pickerBtn.setAttribute('aria-expanded', 'false');
+          picker.classList.remove('is-open');
+        }
+
+        pickerBtn?.addEventListener('click', e => {
+          e.stopPropagation();
+          const open = picker.classList.toggle('is-open');
+          pickerBtn.setAttribute('aria-expanded', String(open));
+        });
+
+        document.querySelectorAll('.lang-option').forEach(opt => {
+          opt.addEventListener('click', () => {
+            if (typeof applyLang === 'function') applyLang(opt.dataset.lang);
+            syncPicker(opt.dataset.lang);
+          });
+        });
+
+        // Close picker when clicking outside
+        document.addEventListener('click', e => {
+          if (!picker?.contains(e.target)) {
+            picker?.classList.remove('is-open');
+            pickerBtn?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Close on Escape
+        document.addEventListener('keydown', e => {
+          if (e.key === 'Escape') {
+            picker?.classList.remove('is-open');
+            pickerBtn?.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // Sync picker on initial load (i18n.js sets the lang from localStorage)
+        document.addEventListener('DOMContentLoaded', () => {
+          const saved = localStorage.getItem('epma-site-lang') || 'pt-BR';
+          syncPicker(saved);
+        });
+      </script>
     </div>
   </body>
 </html>

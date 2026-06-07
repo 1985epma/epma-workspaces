@@ -3,7 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>EPMA Workspace - Status</title>
+    <title>Status do Serviço — EPMA Workspace</title>
+    <link rel="canonical" href="https://epma.app/status.html" />
+    <meta name="robots" content="index, follow" />
+    <link rel="alternate" hreflang="pt-BR"     href="https://epma.app/status.html" />
+    <link rel="alternate" hreflang="en"        href="https://epma.app/status.html" />
+    <link rel="alternate" hreflang="es"        href="https://epma.app/status.html" />
+    <link rel="alternate" hreflang="x-default" href="https://epma.app/status.html" />
+    <meta name="description" content="Status em tempo real do EPMA Workspace: aplicação, API de AI, billing e componentes críticos." />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://epma.app/status.html" />
+    <meta property="og:site_name"   content="EPMA Workspace" />
+    <meta property="og:locale"      content="pt_BR" />
+    <meta property="og:title"       content="Status do Serviço — EPMA Workspace" />
+    <meta property="og:description" content="Status em tempo real do EPMA Workspace e seus componentes." />
+    <meta property="og:image"       content="https://epma.app/og-image.png" />
+    <meta name="twitter:card"       content="summary" />
+    <meta name="twitter:title"      content="Status — EPMA Workspace" />
+    <meta name="twitter:description" content="Status em tempo real do EPMA Workspace." />
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"WebPage","name":"Status do Serviço","url":"https://epma.app/status.html","description":"Status operacional do EPMA Workspace.","isPartOf":{"@type":"WebSite","name":"EPMA Workspace","url":"https://epma.app/"}}
+    </script>
     <style>
       :root { color-scheme: light; --bg:#f2efe8; --panel:rgba(255,255,255,.8); --panel-strong:rgba(255,255,255,.95); --text:#111; --muted:#606060; --line:rgba(17,17,17,.08); --shadow:0 30px 90px rgba(17,17,17,.12); }
       * { box-sizing:border-box; }
@@ -19,6 +39,11 @@
       .brand-badge { border:1px solid var(--line); background:#111; color:#fff; border-radius:999px; padding:.45rem .8rem; font-size:.72rem; font-weight:700; letter-spacing:.22em; }
       .brand-text { color:var(--muted); font-size:.95rem; font-weight:500; }
       .actions { display:flex; align-items:center; gap:.65rem; }
+      .lang-switch { display:inline-flex; align-items:center; gap:.55rem; padding:0; background:transparent; border:0; }
+      .lang-btn { width:2.65rem; height:2.65rem; border-radius:999px; border:1px solid rgba(255,255,255,.18); background:#565765; color:#fff; display:inline-flex; align-items:center; justify-content:center; box-shadow:0 8px 20px rgba(17,17,17,.12); font-size:1rem; font-weight:700; cursor:pointer; transition:transform .18s ease, background .18s ease, box-shadow .18s ease; }
+      .lang-btn:hover { transform:translateY(-1px); background:#616270; }
+      .lang-btn.is-active { background:#6a6b77; box-shadow:0 10px 24px rgba(17,17,17,.18), 0 0 0 2px rgba(255,255,255,.12) inset; }
+      .lang-flag { font-size:1.05rem; line-height:1; }
       .btn { display:inline-flex; align-items:center; justify-content:center; gap:.5rem; border-radius:999px; border:1px solid var(--line); padding:.7rem 1rem; font-size:.82rem; font-weight:600; transition:transform .18s ease, background .18s ease, border-color .18s ease; }
       .btn:hover { transform:translateY(-1px); }
       .btn-primary { background:#111; color:#fff; border-color:transparent; }
@@ -48,71 +73,76 @@
       @media (max-width: 720px) { .container { width:min(100vw - 1.5rem, 980px); } .topbar-inner, .footer-inner, .status-grid { grid-template-columns:1fr; display:flex; flex-direction:column; align-items:flex-start; } .status-grid { gap:.8rem; } }
     </style>
   </head>
-  <body>
+  <body data-page="status">
     <div class="shell">
       <div class="grid-overlay"></div>
       <header class="topbar">
         <div class="container topbar-inner">
           <div class="brand"><div class="brand-badge">EPMA</div><div class="brand-text">Workspace</div></div>
           <div class="actions">
-            <a class="btn btn-secondary" href="index.html">Home</a>
-            <a class="btn btn-primary" href="privacy.html">Privacidade</a>
+            <div class="lang-switch" aria-label="Seletor de idioma">
+              <button class="lang-btn is-active" type="button" data-lang="pt-BR" aria-label="Português do Brasil"><span class="lang-flag">🇧🇷</span></button>
+              <button class="lang-btn" type="button" data-lang="en-US" aria-label="Inglês dos Estados Unidos"><span class="lang-flag">🇺🇸</span></button>
+              <button class="lang-btn" type="button" data-lang="es" aria-label="Espanhol"><span class="lang-flag">🇪🇸</span></button>
+            </div>
+            <a class="btn btn-secondary" href="index.html" data-i18n="footer.home">Home</a>
+            <a class="btn btn-primary" href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
           </div>
         </div>
       </header>
       <main class="container hero">
-        <div class="eyebrow">Monitoramento do serviço</div>
-        <h1>Status.</h1>
-        <p class="lead">Página simples para informar a situação do workspace, integrações e componentes críticos. Em produção, ela pode ser conectada a um endpoint real de health-check.</p>
+        <div class="eyebrow" data-i18n="eyebrow">Monitoramento do serviço</div>
+        <h1 data-i18n="title.main">Status.</h1>
+        <p class="lead" data-i18n="lead">Página simples para informar a situação do workspace, integrações e componentes críticos. Em produção, ela pode ser conectada a um endpoint real de health-check.</p>
 
         <section class="status-grid">
           <div class="status-card">
-            <div class="small-label"><span class="status-dot green"></span>Aplicação</div>
-            <div class="metric">Operacional</div>
-            <p style="margin:.45rem 0 0; color:var(--muted);">Interface e workspace respondendo normalmente.</p>
+            <div class="small-label"><span class="status-dot green"></span><span data-i18n="card1.label">Aplicação</span></div>
+            <div class="metric" data-i18n="card1.value">Operacional</div>
+            <p style="margin:.45rem 0 0; color:var(--muted);" data-i18n="card1.text">Interface e workspace respondendo normalmente.</p>
           </div>
           <div class="status-card">
-            <div class="small-label"><span class="status-dot green"></span>AI API</div>
-            <div class="metric">Estável</div>
-            <p style="margin:.45rem 0 0; color:var(--muted);">Chamadas de IA disponíveis conforme configuração de chave.</p>
+            <div class="small-label"><span class="status-dot green"></span><span data-i18n="card2.label">AI API</span></div>
+            <div class="metric" data-i18n="card2.value">Estável</div>
+            <p style="margin:.45rem 0 0; color:var(--muted);" data-i18n="card2.text">Chamadas de IA disponíveis conforme configuração de chave.</p>
           </div>
           <div class="status-card">
-            <div class="small-label"><span class="status-dot amber"></span>Billing</div>
-            <div class="metric">Sandbox</div>
-            <p style="margin:.45rem 0 0; color:var(--muted);">Fluxos de cobrança estão em modo demonstrativo local.</p>
+            <div class="small-label"><span class="status-dot amber"></span><span data-i18n="card3.label">Billing</span></div>
+            <div class="metric" data-i18n="card3.value">Sandbox</div>
+            <p style="margin:.45rem 0 0; color:var(--muted);" data-i18n="card3.text">Fluxos de cobrança estão em modo demonstrativo local.</p>
           </div>
         </section>
 
         <section class="card doc" style="margin-top:1.6rem;">
-          <h2 style="margin:0 0 .5rem; font-size:1.1rem;">Componentes</h2>
+          <h2 style="margin:0 0 .5rem; font-size:1.1rem;" data-i18n="table.title">Componentes</h2>
           <table>
             <thead>
               <tr>
-                <th>Componente</th>
-                <th>Status</th>
-                <th>Observação</th>
+                <th data-i18n="table.col1">Componente</th>
+                <th data-i18n="table.col2">Status</th>
+                <th data-i18n="table.col3">Observação</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>Workspace principal</td>
-                <td><span class="pill">Ativo</span></td>
-                <td>Editor, tabelas e navegação funcionando no navegador.</td>
+                <td data-i18n="row1.col1">Workspace principal</td>
+                <td><span class="pill" data-i18n="row1.col2">Ativo</span></td>
+                <td data-i18n="row1.col3">Editor, tabelas e navegação funcionando no navegador.</td>
               </tr>
               <tr>
-                <td>Login</td>
-                <td><span class="pill">Ativo</span></td>
-                <td>Fluxo demo disponível com credenciais locais.</td>
+                <td data-i18n="row2.col1">Login</td>
+                <td><span class="pill" data-i18n="row2.col2">Ativo</span></td>
+                <td data-i18n="row2.col3">Fluxo demo disponível com credenciais locais.</td>
               </tr>
               <tr>
-                <td>Privacidade</td>
-                <td><span class="pill">Informativo</span></td>
-                <td>Conteúdo salvo localmente no protótipo.</td>
+                <td data-i18n="row3.col1">Privacidade</td>
+                <td><span class="pill" data-i18n="row3.col2">Informativo</span></td>
+                <td data-i18n="row3.col3">Conteúdo salvo localmente no protótipo.</td>
               </tr>
               <tr>
-                <td>Segurança</td>
-                <td><span class="pill">A revisar</span></td>
-                <td>Requer backend e controles adicionais em produção.</td>
+                <td data-i18n="row4.col1">Segurança</td>
+                <td><span class="pill" data-i18n="row4.col2">A revisar</span></td>
+                <td data-i18n="row4.col3">Requer backend e controles adicionais em produção.</td>
               </tr>
             </tbody>
           </table>
@@ -122,12 +152,13 @@
         <div class="container footer-inner">
           <div style="font-weight:600;color:#313131;">EPMA Workspace</div>
           <div class="footer-links">
-            <a href="privacy.html">Privacidade</a>
-            <a href="security.html">Segurança</a>
-            <a href="index.html">Home</a>
+            <a href="privacy.html" data-i18n="footer.privacy">Privacidade</a>
+            <a href="security.html" data-i18n="footer.security">Segurança</a>
+            <a href="index.html" data-i18n="footer.home">Home</a>
           </div>
         </div>
       </footer>
+      <script src="i18n.js"></script>
     </div>
   </body>
 </html>
