@@ -2218,6 +2218,7 @@
 
           <div class="modal-divider" data-i18n="modal.or">ou</div>
 
+          <div id="login-error" style="display:none;background:#fef2f2;border:1px solid #fecaca;color:#b91c1c;border-radius:0.65rem;padding:0.6rem 0.85rem;font-size:0.82rem;margin-bottom:1rem;"></div>
           <form id="login-form" novalidate>
             <div class="modal-field">
               <label class="modal-label" for="login-email" data-i18n="modal.email">E-mail</label>
@@ -2276,15 +2277,42 @@
           if (e.key === 'Escape' && loginModal?.classList.contains('is-open')) closeModal();
         });
 
+        // Demo credentials — prototype only
+        const DEMO_USERS = [
+          { email: 'admin@epma.app', password: 'admin123', name: 'Admin', role: 'Administrador' }
+        ];
+
+        const loginError = document.getElementById('login-error');
+
         document.getElementById('login-form')?.addEventListener('submit', e => {
           e.preventDefault();
-          const btn = e.target.querySelector('.modal-btn');
+          const email    = document.getElementById('login-email').value.trim().toLowerCase();
+          const password = document.getElementById('login-password').value;
+          const btn      = e.target.querySelector('.modal-btn');
+
+          // clear previous error
+          if (loginError) loginError.style.display = 'none';
+
           btn.textContent = '...';
           btn.disabled = true;
+
           setTimeout(() => {
-            btn.textContent = btn.getAttribute('data-i18n') ? btn.getAttribute('data-i18n') : 'Entrar na conta';
-            btn.disabled = false;
-          }, 1500);
+            const user = DEMO_USERS.find(u => u.email === email && u.password === password);
+
+            if (user) {
+              sessionStorage.setItem('epma-user', JSON.stringify(user));
+              window.location.href = 'workspace.html';
+            } else {
+              btn.textContent = 'Entrar na conta';
+              btn.disabled = false;
+              if (loginError) {
+                loginError.textContent = 'E-mail ou senha incorretos.';
+                loginError.style.display = 'block';
+              }
+              document.getElementById('login-password').value = '';
+              document.getElementById('login-password').focus();
+            }
+          }, 700);
         });
 
         // FAQ accordion — smooth max-height
